@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<root xmlns="https://www.drfits.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="">
+    <acpi>
+        <patch>
+
+        </patch>
+        <delete>
+
+        </delete>
+        <add>
+            <entry comment="Custom DSDT" enabled="true" path="DSDT.aml"/>
+            <entry comment="Custom SSDT" enabled="true" path="SSDT.aml"/>
+        </add>
+        <quirks>
+
+        </quirks>
+    </acpi>
+</root>
