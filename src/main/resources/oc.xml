@@ -1,23 +1,25 @@
 <?xml version="1.0"?>
-<root xmlns="https://www.drfits.com"
+<root xmlns="https://www.drfits.com/schema/oc"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="">
     <acpi>
         <patch>
-
+            <dict comment="_Q11 to XQ11" count="1" enabled="false" find="X1ExMQ==" limit="0"
+                  mask="" oemTableId="" replace="WFExMQ==" replaceMask="" skip="0" tableLength="0" tableSignature=""/>
         </patch>
         <delete>
-            <entry all="false" comment="Delete CpuPm" enabled="false" oemTableId="Q3B1UG0AAAA="
-                   tableLength="0" tableSignature="U1NEVA=="/>
-            <entry all="false" comment="Delete Cpu0Ist" enabled="false" oemTableId="Q3B1MElzdAA="
-                   tableLength="0" tableSignature="U1NEVA=="/>
+            <dict all="false" comment="Delete CpuPm" enabled="false" oemTableId="Q3B1UG0AAAA="
+                  tableLength="0" tableSignature="U1NEVA=="/>
+            <dict all="false" comment="Delete Cpu0Ist" enabled="false" oemTableId="Q3B1MElzdAA="
+                  tableLength="0" tableSignature="U1NEVA=="/>
         </delete>
         <add>
-            <entry comment="Custom DSDT" enabled="true" path="DSDT.aml"/>
-            <entry comment="Custom SSDT" enabled="true" path="SSDT.aml"/>
+            <dict comment="Custom DSDT" enabled="true" path="DSDT.aml"/>
+            <dict comment="Custom SSDT" enabled="true" path="SSDT.aml"/>
         </add>
         <quirks>
-
+            <dict fadtEnableReset="false" normalizeHeaders="false" rebaseRegions="false"
+                  resetHwSig="false" resetLogoStatus="false"/>
         </quirks>
     </acpi>
 </root>

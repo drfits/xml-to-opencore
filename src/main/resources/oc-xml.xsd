@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://www.drfits.com"
-           xmlns="https://www.drfits.com"
+           targetNamespace="https://www.drfits.com/schema/oc"
+           xmlns="https://www.drfits.com/schema/oc"
            elementFormDefault="qualified">
     <xs:element name="root">
         <xs:complexType>
@@ -9,11 +9,32 @@
                 <xs:element name="acpi">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="patch" minOccurs="0"/>
+                            <xs:element name="patch" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="comment" type="xs:string"/>
+                                                <xs:attribute name="count" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="enabled" type="xs:boolean"/>
+                                                <xs:attribute name="find" type="xs:base64Binary"/>
+                                                <xs:attribute name="limit" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="mask" type="xs:base64Binary"/>
+                                                <xs:attribute name="oemTableId" type="xs:base64Binary"/>
+                                                <xs:attribute name="replace" type="xs:base64Binary"/>
+                                                <xs:attribute name="replaceMask" type="xs:base64Binary"/>
+                                                <xs:attribute name="skip" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="tableLength" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="tableSignature" type="xs:base64Binary"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="delete" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:attribute name="all" type="xs:boolean"/>
                                                 <xs:attribute name="comment" type="xs:string"/>
@@ -29,7 +50,7 @@
                             <xs:element name="add" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:attribute name="comment" type="xs:string"/>
                                                 <xs:attribute name="enabled" type="xs:boolean"/>
@@ -49,7 +70,21 @@
                                     <xs:field xpath="@path"/>
                                 </xs:unique>
                             </xs:element>
-                            <xs:element name="quirks" minOccurs="0"/>
+                            <xs:element name="quirks" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:attribute name="fadtEnableReset" type="xs:boolean"/>
+                                                <xs:attribute name="normalizeHeaders" type="xs:boolean"/>
+                                                <xs:attribute name="rebaseRegions" type="xs:boolean"/>
+                                                <xs:attribute name="resetHwSig" type="xs:boolean"/>
+                                                <xs:attribute name="resetLogoStatus" type="xs:boolean"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
