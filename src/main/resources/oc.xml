@@ -7,7 +7,10 @@
 
         </patch>
         <delete>
-
+            <entry all="false" comment="Delete CpuPm" enabled="false" oemTableId="Q3B1UG0AAAA="
+                   tableLength="0" tableSignature="U1NEVA=="/>
+            <entry all="false" comment="Delete Cpu0Ist" enabled="false" oemTableId="Q3B1MElzdAA="
+                   tableLength="0" tableSignature="U1NEVA=="/>
         </delete>
         <add>
             <entry comment="Custom DSDT" enabled="true" path="DSDT.aml"/>

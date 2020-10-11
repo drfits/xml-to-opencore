@@ -13,11 +13,14 @@
                             <xs:element name="delete" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="entry" minOccurs="0">
+                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
+                                                <xs:attribute name="all" type="xs:boolean"/>
                                                 <xs:attribute name="comment" type="xs:string"/>
                                                 <xs:attribute name="enabled" type="xs:boolean"/>
-                                                <xs:attribute name="path" type="xs:string"/>
+                                                <xs:attribute name="oemTableId" type="xs:base64Binary"/>
+                                                <xs:attribute name="tableLength" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="tableSignature" type="xs:base64Binary"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
@@ -41,7 +44,7 @@
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
-                                <xs:unique name="UniqueAddPath">
+                                <xs:unique name="acpi-add-uniqueAddPath">
                                     <xs:selector xpath="./*"/>
                                     <xs:field xpath="@path"/>
                                 </xs:unique>
