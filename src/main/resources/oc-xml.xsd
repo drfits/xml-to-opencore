@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.drfits.com"
+           xmlns="https://www.drfits.com"
+           elementFormDefault="qualified">
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="acpi">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="patch" minOccurs="0"/>
+                            <xs:element name="delete" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="entry" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:attribute name="comment" type="xs:string"/>
+                                                <xs:attribute name="enabled" type="xs:boolean"/>
+                                                <xs:attribute name="path" type="xs:string"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="add" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="comment" type="xs:string"/>
+                                                <xs:attribute name="enabled" type="xs:boolean"/>
+                                                <xs:attribute name="path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="UniqueAddPath">
+                                    <xs:selector xpath="./*"/>
+                                    <xs:field xpath="@path"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="quirks" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
