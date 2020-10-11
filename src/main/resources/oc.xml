@@ -17,9 +17,45 @@
             <dict comment="Custom DSDT" enabled="true" path="DSDT.aml"/>
             <dict comment="Custom SSDT" enabled="true" path="SSDT.aml"/>
         </add>
-        <quirks>
-            <dict fadtEnableReset="false" normalizeHeaders="false" rebaseRegions="false"
-                  resetHwSig="false" resetLogoStatus="false"/>
-        </quirks>
+        <quirks fadtEnableReset="false" normalizeHeaders="false" rebaseRegions="false"
+                resetHwSig="false" resetLogoStatus="false"/>
     </acpi>
+    <booter>
+        <mmioWhitelist>
+            <dict>
+                <address>23452345</address>
+                <comment>34523452345234523452345</comment>
+                <enabled>true</enabled>
+            </dict>
+
+
+        </mmioWhitelist>
+        <quirks>
+            <avoidRuntimeDefrag>false</avoidRuntimeDefrag>
+            <devirtualiseMmio>false</devirtualiseMmio>
+            <disableSingleUser>false</disableSingleUser>
+            <disableVariableWrite>false</disableVariableWrite>
+            <discardHibernateMap>false</discardHibernateMap>
+            <enableSafeModeSlide>false</enableSafeModeSlide>
+            <enableWriteUnprotector>false</enableWriteUnprotector>
+            <forceExitBootServices>false</forceExitBootServices>
+            <protectMemoryRegions>false</protectMemoryRegions>
+            <protectSecureBoot>false</protectSecureBoot>
+            <protectUefiServices>false</protectUefiServices>
+            <provideCustomSlide>false</provideCustomSlide>
+            <provideMaxSlide>0</provideMaxSlide>
+            <rebuildAppleMemoryMap>false</rebuildAppleMemoryMap>
+            <setupVirtualMap>false</setupVirtualMap>
+            <signalAppleOS>false</signalAppleOS>
+            <syncRuntimePermissions>false</syncRuntimePermissions>
+        </quirks>
+    </booter>
+    <deviceProperties>
+        <add>
+            <device path="PciRoot(0x0)/Pci(0x1b,0x0)">
+                <prop key="layout-id">AQAAAA==</prop>
+            </device>
+        </add>
+        <delete/>
+    </deviceProperties>
 </root>
