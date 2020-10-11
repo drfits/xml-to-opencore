@@ -44,8 +44,8 @@
             </dict>
         </delete>
         <add>
-            <dict enabled="true" comment="Custom DSDT" path="DSDT.aml"/>
-            <dict enabled="true" comment="Custom SSDT" path="SSDT.aml"/>
+            <dict enabled="false" comment="Custom DSDT" path="DSDT.aml"/>
+            <dict enabled="false" comment="Custom SSDT" path="SSDT.aml"/>
         </add>
         <quirks>
             <fadtEnableReset>false</fadtEnableReset>
