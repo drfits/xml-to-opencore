@@ -9,7 +9,7 @@
                 <xs:element name="acpi">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="patch" minOccurs="0">
+                            <xs:element name="patch">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
@@ -31,7 +31,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="delete" minOccurs="0">
+                            <xs:element name="delete">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
@@ -47,7 +47,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="add" minOccurs="0">
+                            <xs:element name="add">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
@@ -70,17 +70,152 @@
                                     <xs:field xpath="@path"/>
                                 </xs:unique>
                             </xs:element>
-                            <xs:element name="quirks" minOccurs="0">
+                            <xs:element name="quirks">
+                                <xs:complexType>
+                                    <xs:attribute name="fadtEnableReset" type="xs:boolean"/>
+                                    <xs:attribute name="normalizeHeaders" type="xs:boolean"/>
+                                    <xs:attribute name="rebaseRegions" type="xs:boolean"/>
+                                    <xs:attribute name="resetHwSig" type="xs:boolean"/>
+                                    <xs:attribute name="resetLogoStatus" type="xs:boolean"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="booter">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="mmioWhitelist">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="dict" minOccurs="0">
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
-                                                <xs:attribute name="fadtEnableReset" type="xs:boolean"/>
-                                                <xs:attribute name="normalizeHeaders" type="xs:boolean"/>
-                                                <xs:attribute name="rebaseRegions" type="xs:boolean"/>
-                                                <xs:attribute name="resetHwSig" type="xs:boolean"/>
-                                                <xs:attribute name="resetLogoStatus" type="xs:boolean"/>
+                                                <xs:sequence>
+                                                    <xs:element name="address" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="comment" type="xs:string"/>
+                                                    <xs:element name="enabled" type="xs:boolean"/>
+                                                </xs:sequence>
                                             </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="quirks">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="avoidRuntimeDefrag" type="xs:boolean" default="true"/>
+                                        <xs:element name="devirtualiseMmio" type="xs:boolean"/>
+                                        <xs:element name="disableSingleUser" type="xs:boolean"/>
+                                        <xs:element name="disableVariableWrite" type="xs:boolean"/>
+                                        <xs:element name="discardHibernateMap" type="xs:boolean"/>
+                                        <xs:element name="enableSafeModeSlide" type="xs:boolean" default="true"/>
+                                        <xs:element name="enableWriteUnprotector" type="xs:boolean" default="true"/>
+                                        <xs:element name="forceExitBootServices" type="xs:boolean"/>
+                                        <xs:element name="protectMemoryRegions" type="xs:boolean"/>
+                                        <xs:element name="protectSecureBoot" type="xs:boolean"/>
+                                        <xs:element name="protectUefiServices" type="xs:boolean"/>
+                                        <xs:element name="provideCustomSlide" type="xs:boolean" default="true"/>
+                                        <xs:element name="provideMaxSlide" default="0">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:nonNegativeInteger">
+                                                    <xs:minInclusive value="0"/>
+                                                    <xs:maxInclusive value="254"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="rebuildAppleMemoryMap" type="xs:boolean"/>
+                                        <xs:element name="setupVirtualMap" type="xs:boolean" default="true"/>
+                                        <xs:element name="signalAppleOS" type="xs:boolean"/>
+                                        <xs:element name="syncRuntimePermissions" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="deviceProperties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="device" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="key" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                            <xs:unique name="device-properties-add-unique-devicePath">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@path"/>
+                                            </xs:unique>
+                                            <xs:unique name="device-properties-add-unique-prop-type">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@key"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="delete">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="device" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="key" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                            <xs:unique name="device-properties-delete-unique-devicePath">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@path"/>
+                                            </xs:unique>
+                                            <xs:unique name="device-properties-delete-unique-prop-type">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@key"/>
+                                            </xs:unique>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
