@@ -221,4 +221,24 @@
             <kernelCache>Auto</kernelCache>
         </scheme>
     </kernel>
+    <misc>
+        <blessOverride>
+            <path>/path1</path>
+            <path>/path2</path>
+            <path>/path3</path>
+        </blessOverride>
+        <boot/>
+        <debug/>
+        <entries>
+            <entry name="CustomOS">
+                <comment>Not signed for security reasons</comment>
+                <path>
+                    PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI
+                </path>
+            </entry>
+        </entries>
+        <security>
+
+        </security>
+    </misc>
 </root>
