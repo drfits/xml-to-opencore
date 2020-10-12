@@ -107,19 +107,19 @@
                             <xs:element name="quirks">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="avoidRuntimeDefrag" type="xs:boolean" default="true"/>
+                                        <xs:element name="avoidRuntimeDefrag" type="xs:boolean"/>
                                         <xs:element name="devirtualiseMmio" type="xs:boolean"/>
                                         <xs:element name="disableSingleUser" type="xs:boolean"/>
                                         <xs:element name="disableVariableWrite" type="xs:boolean"/>
                                         <xs:element name="discardHibernateMap" type="xs:boolean"/>
-                                        <xs:element name="enableSafeModeSlide" type="xs:boolean" default="true"/>
-                                        <xs:element name="enableWriteUnprotector" type="xs:boolean" default="true"/>
+                                        <xs:element name="enableSafeModeSlide" type="xs:boolean"/>
+                                        <xs:element name="enableWriteUnprotector" type="xs:boolean"/>
                                         <xs:element name="forceExitBootServices" type="xs:boolean"/>
                                         <xs:element name="protectMemoryRegions" type="xs:boolean"/>
                                         <xs:element name="protectSecureBoot" type="xs:boolean"/>
                                         <xs:element name="protectUefiServices" type="xs:boolean"/>
-                                        <xs:element name="provideCustomSlide" type="xs:boolean" default="true"/>
-                                        <xs:element name="provideMaxSlide" default="0">
+                                        <xs:element name="provideCustomSlide" type="xs:boolean"/>
+                                        <xs:element name="provideMaxSlide">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:nonNegativeInteger">
                                                     <xs:minInclusive value="0"/>
@@ -128,7 +128,7 @@
                                             </xs:simpleType>
                                         </xs:element>
                                         <xs:element name="rebuildAppleMemoryMap" type="xs:boolean"/>
-                                        <xs:element name="setupVirtualMap" type="xs:boolean" default="true"/>
+                                        <xs:element name="setupVirtualMap" type="xs:boolean"/>
                                         <xs:element name="signalAppleOS" type="xs:boolean"/>
                                         <xs:element name="syncRuntimePermissions" type="xs:boolean"/>
                                     </xs:sequence>
@@ -411,10 +411,43 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="misc">
+                <xs:element name="Misc">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="blessOverride">
+                            <xs:element name="Boot">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ConsoleAttributes" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="HibernateMode">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="None"/>
+                                                    <xs:enumeration value="Auto"/>
+                                                    <xs:enumeration value="RTC"/>
+                                                    <xs:enumeration value="NVRAM"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="HideAuxiliary" type="xs:boolean"/>
+                                        <xs:element name="PickerAttributes" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PickerAudioAssist" type="xs:boolean"/>
+                                        <xs:element name="PollAppleHotKeys" type="xs:boolean"/>
+                                        <xs:element name="ShowPicker" type="xs:boolean"/>
+                                        <xs:element name="TakeoffDelay" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="Timeout" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PickerMode">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Builtin"/>
+                                                    <xs:enumeration value="External"/>
+                                                    <xs:enumeration value="Apple"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BlessOverride">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="path" minOccurs="0" maxOccurs="unbounded">
@@ -427,63 +460,30 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="boot">
+                            <xs:element name="Debug">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="consoleAttributes" type="xs:nonNegativeInteger" minOccurs="0" default="0"/>
-                                        <xs:element name="hibernateMode" minOccurs="0" default="None">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:enumeration value="None"/>
-                                                    <xs:enumeration value="Auto"/>
-                                                    <xs:enumeration value="RTC"/>
-                                                    <xs:enumeration value="NVRAM"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:element name="hideAuxiliary" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="pickerAttributes" type="xs:nonNegativeInteger" minOccurs="0" default="1"/>
-                                        <xs:element name="pickerAudioAssist" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="pollAppleHotKeys" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="showPicker" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="takeoffDelay" type="xs:nonNegativeInteger" minOccurs="0" default="0"/>
-                                        <xs:element name="timeout" type="xs:nonNegativeInteger" minOccurs="0" default="5"/>
-                                        <xs:element name="pickerMode" minOccurs="0" default="Builtin">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:enumeration value="Builtin"/>
-                                                    <xs:enumeration value="External"/>
-                                                    <xs:enumeration value="Apple"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
+                                        <xs:element name="AppleDebug" type="xs:boolean"/>
+                                        <xs:element name="ApplePanic" type="xs:boolean"/>
+                                        <xs:element name="DisableWatchDog" type="xs:boolean"/>
+                                        <xs:element name="DisplayDelay" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="DisplayLevel" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="SerialInit" type="xs:boolean"/>
+                                        <xs:element name="SysReport" type="xs:boolean"/>
+                                        <xs:element name="Target" type="xs:nonNegativeInteger"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="debug">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="appleDebug" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="applePanic" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="disableWatchDog" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="displayDelay" type="xs:nonNegativeInteger" minOccurs="0" default="0"/>
-                                        <xs:element name="displayLevel" type="xs:nonNegativeInteger" minOccurs="0" default="2147483650"/>
-                                        <xs:element name="serialInit" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="sysReport" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="target" type="xs:nonNegativeInteger" minOccurs="0" default="3"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="entries">
+                            <xs:element name="Entries">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="comment" type="xs:string" minOccurs="0" default=""/>
-                                                    <xs:element name="arguments" type="xs:string" minOccurs="0" default=""/>
-                                                    <xs:element name="auxiliary" type="xs:boolean" minOccurs="0" default="false"/>
-                                                    <xs:element name="path">
+                                                    <xs:element name="Arguments" type="xs:string"/>
+                                                    <xs:element name="Auxiliary" type="xs:boolean"/>
+                                                    <xs:element name="Comment" type="xs:string"/>
+                                                    <xs:element name="Path">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
                                                                 <xs:minLength value="1"/>
@@ -491,21 +491,21 @@
                                                         </xs:simpleType>
                                                     </xs:element>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" default="false"/>
-                                                <xs:attribute name="name" type="xs:string" default=""/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Name" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="security">
+                            <xs:element name="Security">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="allowNvramReset" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="allowSetDefault" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="apECID" type="xs:nonNegativeInteger" minOccurs="0" default="0"/>
-                                        <xs:element name="authRestart" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="bootProtect" minOccurs="0" default="None">
+                                        <xs:element name="AllowNvramReset" type="xs:boolean"/>
+                                        <xs:element name="AllowSetDefault" type="xs:boolean"/>
+                                        <xs:element name="ApECID" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="AuthRestart" type="xs:boolean"/>
+                                        <xs:element name="BootProtect">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:enumeration value="None"/>
@@ -513,7 +513,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="dmgLoading" minOccurs="0" default="Signed">
+                                        <xs:element name="DmgLoading">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:enumeration value="Disabled"/>
@@ -522,11 +522,70 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="enablePassword" type="xs:boolean" minOccurs="0" default="false"/>
-                                        <xs:element name="exposeSensitiveData" type="xs:boolean" minOccurs="0" default="6"/>
+                                        <xs:element name="EnablePassword" type="xs:boolean"/>
+                                        <xs:element name="ExposeSensitiveData" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="HaltLevel" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PasswordHash" type="xs:base64Binary"/>
+                                        <xs:element name="PasswordSalt" type="xs:base64Binary"/>
+                                        <xs:element name="Vault">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Optional"/>
+                                                    <xs:enumeration value="Basic"/>
+                                                    <xs:enumeration value="Secure"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="ScanPolicy" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="SecureBootModel">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Default"/>
+                                                    <xs:enumeration value="Disabled"/>
+                                                    <xs:enumeration value="j137"/>
+                                                    <xs:enumeration value="j680"/>
+                                                    <xs:enumeration value="j132"/>
+                                                    <xs:enumeration value="j174"/>
+                                                    <xs:enumeration value="j140k"/>
+                                                    <xs:enumeration value="j780"/>
+                                                    <xs:enumeration value="j213"/>
+                                                    <xs:enumeration value="j140a"/>
+                                                    <xs:enumeration value="j152f"/>
+                                                    <xs:enumeration value="j160"/>
+                                                    <xs:enumeration value="j230k"/>
+                                                    <xs:enumeration value="j214k"/>
+                                                    <xs:enumeration value="j223"/>
+                                                    <xs:enumeration value="j215"/>
+                                                    <xs:enumeration value="j185"/>
+                                                    <xs:enumeration value="j185f"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute name="enabled" type="xs:boolean" default="false"/>
-                                    <xs:attribute name="name" type="xs:string" default=""/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Tools">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arguments" type="xs:string"/>
+                                                    <xs:element name="Auxiliary" type="xs:boolean"/>
+                                                    <xs:element name="Comment" type="xs:string"/>
+                                                    <xs:element name="Path">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Name" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

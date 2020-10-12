@@ -221,24 +221,73 @@
             <kernelCache>Auto</kernelCache>
         </scheme>
     </kernel>
-    <misc>
-        <blessOverride>
-            <path>/path1</path>
-            <path>/path2</path>
-            <path>/path3</path>
-        </blessOverride>
-        <boot/>
-        <debug/>
-        <entries>
-            <entry name="CustomOS">
-                <comment>Not signed for security reasons</comment>
-                <path>
-                    PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI
-                </path>
+    <Misc>
+        <Boot>
+            <ConsoleAttributes>0</ConsoleAttributes>
+            <HibernateMode>None</HibernateMode>
+            <HideAuxiliary>false</HideAuxiliary>
+            <PickerAttributes>1</PickerAttributes>
+            <PickerAudioAssist>false</PickerAudioAssist>
+            <PollAppleHotKeys>false</PollAppleHotKeys>
+            <ShowPicker>true</ShowPicker>
+            <TakeoffDelay>0</TakeoffDelay>
+            <Timeout>5</Timeout>
+            <PickerMode>Builtin</PickerMode>
+        </Boot>
+        <BlessOverride/>
+        <Debug>
+            <AppleDebug>false</AppleDebug>
+            <ApplePanic>false</ApplePanic>
+            <DisableWatchDog>false</DisableWatchDog>
+            <DisplayDelay>0</DisplayDelay>
+            <DisplayLevel>2147483650</DisplayLevel>
+            <SerialInit>false</SerialInit>
+            <SysReport>false</SysReport>
+            <Target>3</Target>
+        </Debug>
+        <Entries>
+            <entry Enabled="false" Name="CustomOS">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Not signed for security reasons</Comment>
+                <Path>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</Path>
             </entry>
-        </entries>
-        <security>
-
-        </security>
-    </misc>
+        </Entries>
+        <Security>
+            <AllowNvramReset>false</AllowNvramReset>
+            <AllowSetDefault>false</AllowSetDefault>
+            <ApECID>0</ApECID>
+            <AuthRestart>false</AuthRestart>
+            <BootProtect>Bootstrap</BootProtect>
+            <DmgLoading>Signed</DmgLoading>
+            <EnablePassword>false</EnablePassword>
+            <ExposeSensitiveData>6</ExposeSensitiveData>
+            <HaltLevel>2147483648</HaltLevel>
+            <PasswordHash/>
+            <PasswordSalt/>
+            <Vault>Secure</Vault>
+            <ScanPolicy>17760515</ScanPolicy>
+            <SecureBootModel>Default</SecureBootModel>
+        </Security>
+        <Tools>
+            <entry Enabled="false" Name="UEFI Shell">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Not signed for security reasons</Comment>
+                <Path>OpenShell.efi</Path>
+            </entry>
+            <entry Enabled="false" Name="memcheck">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Memory testing utility</Comment>
+                <Path>memcheck/memcheck.efi</Path>
+            </entry>
+            <entry Enabled="false" Name="Shutdown">
+                <Arguments>Shutdown</Arguments>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Perform shutdown</Comment>
+                <Path>ResetSystem.efi</Path>
+            </entry>
+        </Tools>
+    </Misc>
 </root>
