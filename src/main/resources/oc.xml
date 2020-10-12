@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <root xmlns="https://www.drfits.com/schema/oc"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="">
+      xsi:schemaLocation="https://www.drfits.com/schema/oc oc-xml.xsd">
     <acpi>
         <patch>
             <dict enabled="false" comment="_Q11 to XQ11">

@@ -224,7 +224,254 @@
                             </xsl:for-each>
                         </xsl:for-each>
                     </dict>
-                    <dict/>
+                </dict>
+                <key>Kernel</key>
+                <dict>
+                    <key>Add</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:add/oc:dict">
+                            <dict>
+                                <key>Arch</key>
+                                <string>
+                                    <xsl:value-of select="oc:arch"/>
+                                </string>
+                                <key>BundlePath</key>
+                                <string>
+                                    <xsl:value-of select="oc:bundlePath"/>
+                                </string>
+                                <key>Comment</key>
+                                <string>
+                                    <xsl:value-of select="@comment"/>
+                                </string>
+                                <key>Enabled</key>
+                                <xsl:element name="{@enabled}"/>
+                                <key>ExecutablePath</key>
+                                <string>
+                                    <xsl:value-of select="oc:executablePath"/>
+                                </string>
+                                <key>MaxKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:maxKernel"/>
+                                </string>
+                                <key>MinKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:minKernel"/>
+                                </string>
+                                <key>PlistPath</key>
+                                <string>
+                                    <xsl:value-of select="oc:plistPath"/>
+                                </string>
+                            </dict>
+                        </xsl:for-each>
+                    </array>
+                    <key>Block</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:block/oc:dict">
+                            <dict>
+                                <key>Arch</key>
+                                <string>
+                                    <xsl:value-of select="oc:arch"/>
+                                </string>
+                                <key>Comment</key>
+                                <string>
+                                    <xsl:value-of select="@comment"/>
+                                </string>
+                                <key>Enabled</key>
+                                <xsl:element name="{@enabled}"/>
+                                <key>Identifier</key>
+                                <string>
+                                    <xsl:value-of select="oc:identifier"/>
+                                </string>
+                                <key>MaxKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:maxKernel"/>
+                                </string>
+                                <key>MinKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:minKernel"/>
+                                </string>
+                            </dict>
+                        </xsl:for-each>
+                    </array>
+                    <key>Emulate</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:emulate">
+                            <key>DummyPowerManagement</key>
+                            <xsl:element name="{oc:dummyPowerManagement}"/>
+                            <key>Cpuid1Data</key>
+                            <data>
+                                <xsl:value-of select="oc:cpuid1Data"/>
+                            </data>
+                            <key>Cpuid1Mask</key>
+                            <data>
+                                <xsl:value-of select="oc:cpuid1Mask"/>
+                            </data>
+                            <key>MaxKernel</key>
+                            <string>
+                                <xsl:value-of select="oc:maxKernel"/>
+                            </string>
+                            <key>MinKernel</key>
+                            <string>
+                                <xsl:value-of select="oc:minKernel"/>
+                            </string>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Force</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:force/oc:dict">
+                            <dict>
+                                <key>Arch</key>
+                                <string>
+                                    <xsl:value-of select="oc:arch"/>
+                                </string>
+                                <key>BundlePath</key>
+                                <string>
+                                    <xsl:value-of select="oc:bundlePath"/>
+                                </string>
+                                <key>Comment</key>
+                                <string>
+                                    <xsl:value-of select="@comment"/>
+                                </string>
+                                <key>Enabled</key>
+                                <xsl:element name="{@enabled}"/>
+                                <key>Identifier</key>
+                                <string>
+                                    <xsl:value-of select="oc:identifier"/>
+                                </string>
+                                <key>ExecutablePath</key>
+                                <string>
+                                    <xsl:value-of select="oc:executablePath"/>
+                                </string>
+                                <key>MaxKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:maxKernel"/>
+                                </string>
+                                <key>MinKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:minKernel"/>
+                                </string>
+                                <key>PlistPath</key>
+                                <string>
+                                    <xsl:value-of select="oc:plistPath"/>
+                                </string>
+                            </dict>
+                        </xsl:for-each>
+                    </array>
+                    <key>Patch</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:patch/oc:dict">
+                            <dict>
+                                <key>Arch</key>
+                                <string>
+                                    <xsl:value-of select="oc:arch"/>
+                                </string>
+                                <key>Base</key>
+                                <string>
+                                    <xsl:value-of select="oc:base"/>
+                                </string>
+                                <key>Comment</key>
+                                <string>
+                                    <xsl:value-of select="@comment"/>
+                                </string>
+                                <key>Count</key>
+                                <integer>
+                                    <xsl:value-of select="oc:count"/>
+                                </integer>
+                                <key>Enabled</key>
+                                <xsl:element name="{@enabled}"/>
+                                <key>Find</key>
+                                <data>
+                                    <xsl:value-of select="oc:find"/>
+                                </data>
+                                <key>Identifier</key>
+                                <string>
+                                    <xsl:value-of select="oc:identifier"/>
+                                </string>
+                                <key>Limit</key>
+                                <integer>
+                                    <xsl:value-of select="oc:limit"/>
+                                </integer>
+                                <key>Mask</key>
+                                <data>
+                                    <xsl:value-of select="oc:mask"/>
+                                </data>
+                                <key>MaxKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:maxKernel"/>
+                                </string>
+                                <key>MinKernel</key>
+                                <string>
+                                    <xsl:value-of select="oc:minKernel"/>
+                                </string>
+                                <key>Replace</key>
+                                <data>
+                                    <xsl:value-of select="oc:replace"/>
+                                </data>
+                                <key>ReplaceMask</key>
+                                <data>
+                                    <xsl:value-of select="oc:replaceMask"/>
+                                </data>
+                                <key>Skip</key>
+                                <integer>
+                                    <xsl:value-of select="oc:skip"/>
+                                </integer>
+                            </dict>
+                        </xsl:for-each>
+                    </array>
+                    <key>Quirks</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:quirks">
+                            <key>AppleCpuPmCfgLock</key>
+                            <xsl:element name="{oc:appleCpuPmCfgLock}"/>
+                            <key>AppleXcpmCfgLock</key>
+                            <xsl:element name="{oc:appleXcpmCfgLock}"/>
+                            <key>AppleXcpmExtraMsrs</key>
+                            <xsl:element name="{oc:appleXcpmExtraMsrs}"/>
+                            <key>AppleXcpmForceBoost</key>
+                            <xsl:element name="{oc:appleXcpmForceBoost}"/>
+                            <key>CustomSMBIOSGuid</key>
+                            <xsl:element name="{oc:customSMBIOSGuid}"/>
+                            <key>DisableIoMapper</key>
+                            <xsl:element name="{oc:disableIoMapper}"/>
+                            <key>DisableLinkeditJettison</key>
+                            <xsl:element name="{oc:disableLinkeditJettison}"/>
+                            <key>DisableRtcChecksum</key>
+                            <xsl:element name="{oc:disableRtcChecksum}"/>
+                            <key>ExtendBTFeatureFlags</key>
+                            <xsl:element name="{oc:extendBTFeatureFlags}"/>
+                            <key>ExternalDiskIcons</key>
+                            <xsl:element name="{oc:externalDiskIcons}"/>
+                            <key>IncreasePciBarSize</key>
+                            <xsl:element name="{oc:increasePciBarSize}"/>
+                            <key>LapicKernelPanic</key>
+                            <xsl:element name="{oc:lapicKernelPanic}"/>
+                            <key>LegacyCommpage</key>
+                            <xsl:element name="{oc:legacyCommpage}"/>
+                            <key>PanicNoKextDump</key>
+                            <xsl:element name="{oc:panicNoKextDump}"/>
+                            <key>PowerTimeoutKernelPanic</key>
+                            <xsl:element name="{oc:powerTimeoutKernelPanic}"/>
+                            <key>ThirdPartyDrives</key>
+                            <xsl:element name="{oc:thirdPartyDrives}"/>
+                            <key>XhciPortLimit</key>
+                            <xsl:element name="{oc:xhciPortLimit}"/>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Scheme</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:kernel/oc:scheme">
+                            <key>FuzzyMatch</key>
+                            <xsl:element name="{oc:fuzzyMatch}"/>
+                            <key>KernelArch</key>
+                            <string>
+                                <xsl:value-of select="oc:kernelArch"/>
+                            </string>
+                            <key>KernelCache</key>
+                            <string>
+                                <xsl:value-of select="oc:kernelCache"/>
+                            </string>
+                        </xsl:for-each>
+                    </dict>
                 </dict>
             </dict>
         </plist>
