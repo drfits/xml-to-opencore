@@ -86,8 +86,11 @@
     </booter>
     <deviceProperties>
         <add>
-            <device path="PciRoot(0x0)/Pci(0x1b,0x0)">
-                <prop key="layout-id">AQAAAA==</prop>
+            <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
+                <prop key="built-in">AQ==</prop>
+            </device>
+            <device path="PciRoot(0x0)/Pci(0x2,0x0)">
+                <prop key="AAPL,ig-platform-id">AwASWQ==</prop>
             </device>
         </add>
         <delete/>

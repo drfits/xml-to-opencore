@@ -186,6 +186,46 @@
                         </xsl:for-each>
                     </dict>
                 </dict>
+                <key>DeviceProperties</key>
+                <dict>
+                    <key>Add</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:deviceProperties/oc:add/oc:device">
+                            <key>
+                                <xsl:value-of select="@path"/>
+                            </key>
+                            <xsl:for-each select="oc:prop">
+                                <dict>
+                                    <key>
+                                        <xsl:value-of select="@key"/>
+                                    </key>
+                                    <data>
+                                        <xsl:value-of select="text()"/>
+                                    </data>
+                                </dict>
+                            </xsl:for-each>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Delete</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:deviceProperties/oc:delete/oc:device">
+                            <key>
+                                <xsl:value-of select="@path"/>
+                            </key>
+                            <xsl:for-each select="oc:prop">
+                                <dict>
+                                    <key>
+                                        <xsl:value-of select="@key"/>
+                                    </key>
+                                    <data>
+                                        <xsl:value-of select="text()"/>
+                                    </data>
+                                </dict>
+                            </xsl:for-each>
+                        </xsl:for-each>
+                    </dict>
+                    <dict/>
+                </dict>
             </dict>
         </plist>
     </xsl:template>
