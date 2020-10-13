@@ -420,7 +420,7 @@
                     </array>
                     <key>Quirks</key>
                     <dict>
-                        <xsl:for-each select="/oc:root/oc:Kernel/oc:quirks">
+                        <xsl:for-each select="/oc:root/oc:Kernel/oc:Quirks">
                             <key>AppleCpuPmCfgLock</key>
                             <xsl:element name="{oc:AppleCpuPmCfgLock}"/>
                             <key>AppleXcpmCfgLock</key>
@@ -654,6 +654,72 @@
                             </dict>
                         </xsl:for-each>
                     </array>
+                </dict>
+                <key>NVRAM</key>
+                <dict>
+                    <key>Add</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:NVRAM/oc:Add/oc:key">
+                            <key>
+                                <xsl:value-of select="@value"/>
+                            </key>
+                            <dict>
+                                <xsl:for-each select="oc:prop">
+                                    <key>
+                                        <xsl:value-of select="@key"/>
+                                    </key>
+                                    <xsl:choose>
+                                        <xsl:when test="@type='data'">
+                                            <data>
+                                                <xsl:value-of select="text()"/>
+                                            </data>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <string>
+                                                <xsl:value-of select="text()"/>
+                                            </string>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:for-each>
+                            </dict>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Delete</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:NVRAM/oc:Delete/oc:key">
+                            <key>
+                                <xsl:value-of select="@value"/>
+                            </key>
+                            <array>
+                                <xsl:for-each select="oc:prop">
+                                    <string>
+                                        <xsl:value-of select="text()"/>
+                                    </string>
+                                </xsl:for-each>
+                            </array>
+                        </xsl:for-each>
+                    </dict>
+                    <key>LegacyEnable</key>
+                    <xsl:element name="{/oc:root/oc:NVRAM/oc:LegacyEnable/text()}"/>
+                    <key>LegacyOverwrite</key>
+                    <xsl:element name="{/oc:root/oc:NVRAM/oc:LegacyOverwrite/text()}"/>
+                    <key>LegacySchema</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:NVRAM/oc:LegacySchema/oc:key">
+                            <key>
+                                <xsl:value-of select="@value"/>
+                            </key>
+                            <array>
+                                <xsl:for-each select="oc:prop">
+                                    <string>
+                                        <xsl:value-of select="text()"/>
+                                    </string>
+                                </xsl:for-each>
+                            </array>
+                        </xsl:for-each>
+                    </dict>
+                    <key>WriteFlash</key>
+                    <xsl:element name="{/oc:root/oc:NVRAM/oc:WriteFlash/text()}"/>
                 </dict>
             </dict>
         </plist>

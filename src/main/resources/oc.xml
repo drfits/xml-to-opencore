@@ -250,7 +250,9 @@
                 <Arguments/>
                 <Auxiliary>false</Auxiliary>
                 <Comment>Not signed for security reasons</Comment>
-                <Path>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</Path>
+                <Path>
+                    PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI
+                </Path>
             </entry>
         </Entries>
         <Security>
@@ -290,4 +292,60 @@
             </entry>
         </Tools>
     </Misc>
+    <NVRAM>
+        <Add>
+            <key value="4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14">
+                <prop key="DefaultBackgroundColor" type="data">AAAAAA==</prop>
+                <prop key="UIScale" type="data">AQ==</prop>
+            </key>
+            <key value="4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102">
+                <prop key="rtc-blacklist" type="data"/>
+            </key>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop key="SystemAudioVolume" type="data">Rg==</prop>
+                <prop key="boot-args" type="string">-v keepsyms=1</prop>
+                <prop key="run-efi-updater" type="string">No</prop>
+                <prop key="csr-active-config" type="data">AAAAAA==</prop>
+                <prop key="prev-lang:kbd" type="data">cnUtUlU6MjUy</prop>
+            </key>
+        </Add>
+        <Delete>
+            <key value="4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14">
+                <prop>UIScale</prop>
+                <prop>DefaultBackgroundColor</prop>
+            </key>
+            <key value="4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102">
+                <prop>rtc-blacklist</prop>
+            </key>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop>boot-args</prop>
+            </key>
+        </Delete>
+        <LegacyEnable>false</LegacyEnable>
+        <LegacyOverwrite>false</LegacyOverwrite>
+        <LegacySchema>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop>EFILoginHiDPI</prop>
+                <prop>EFIBluetoothDelay</prop>
+                <prop>LocationServicesEnabled</prop>
+                <prop>SystemAudioVolume</prop>
+                <prop>SystemAudioVolumeDB</prop>
+                <prop>SystemAudioVolumeSaved</prop>
+                <prop>bluetoothActiveControllerInfo</prop>
+                <prop>bluetoothInternalControllerInfo</prop>
+                <prop>flagstate</prop>
+                <prop>fmm-computer-name</prop>
+                <prop>nvda_drv</prop>
+                <prop>prev-lang:kbd</prop>
+            </key>
+            <key value="8BE4DF61-93CA-11D2-AA0D-00E098032B8C">
+                <prop>Boot0080</prop>
+                <prop>Boot0081</prop>
+                <prop>Boot0082</prop>
+                <prop>BootNext</prop>
+                <prop>BootOrder</prop>
+            </key>
+        </LegacySchema>
+        <WriteFlash>true</WriteFlash>
+    </NVRAM>
 </root>
