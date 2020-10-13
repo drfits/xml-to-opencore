@@ -88,38 +88,38 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="booter">
+                <xs:element name="Booter">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="mmioWhitelist">
+                            <xs:element name="MmioWhitelist">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
-                                                <xs:attribute name="enabled" type="xs:boolean"/>
-                                                <xs:attribute name="comment" type="xs:string"/>
-                                                <xs:attribute name="address" type="xs:nonNegativeInteger"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Address" type="xs:nonNegativeInteger" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="quirks">
+                            <xs:element name="Quirks">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="avoidRuntimeDefrag" type="xs:boolean"/>
-                                        <xs:element name="devirtualiseMmio" type="xs:boolean"/>
-                                        <xs:element name="disableSingleUser" type="xs:boolean"/>
-                                        <xs:element name="disableVariableWrite" type="xs:boolean"/>
-                                        <xs:element name="discardHibernateMap" type="xs:boolean"/>
-                                        <xs:element name="enableSafeModeSlide" type="xs:boolean"/>
-                                        <xs:element name="enableWriteUnprotector" type="xs:boolean"/>
-                                        <xs:element name="forceExitBootServices" type="xs:boolean"/>
-                                        <xs:element name="protectMemoryRegions" type="xs:boolean"/>
-                                        <xs:element name="protectSecureBoot" type="xs:boolean"/>
-                                        <xs:element name="protectUefiServices" type="xs:boolean"/>
-                                        <xs:element name="provideCustomSlide" type="xs:boolean"/>
-                                        <xs:element name="provideMaxSlide">
+                                        <xs:element name="AvoidRuntimeDefrag" type="xs:boolean"/>
+                                        <xs:element name="DevirtualiseMmio" type="xs:boolean"/>
+                                        <xs:element name="DisableSingleUser" type="xs:boolean"/>
+                                        <xs:element name="DisableVariableWrite" type="xs:boolean"/>
+                                        <xs:element name="DiscardHibernateMap" type="xs:boolean"/>
+                                        <xs:element name="EnableSafeModeSlide" type="xs:boolean"/>
+                                        <xs:element name="EnableWriteUnprotector" type="xs:boolean"/>
+                                        <xs:element name="ForceExitBootServices" type="xs:boolean"/>
+                                        <xs:element name="ProtectMemoryRegions" type="xs:boolean"/>
+                                        <xs:element name="ProtectSecureBoot" type="xs:boolean"/>
+                                        <xs:element name="ProtectUefiServices" type="xs:boolean"/>
+                                        <xs:element name="ProvideCustomSlide" type="xs:boolean"/>
+                                        <xs:element name="ProvideMaxSlide">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:nonNegativeInteger">
                                                     <xs:minInclusive value="0"/>
@@ -127,10 +127,10 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="rebuildAppleMemoryMap" type="xs:boolean"/>
-                                        <xs:element name="setupVirtualMap" type="xs:boolean"/>
-                                        <xs:element name="signalAppleOS" type="xs:boolean"/>
-                                        <xs:element name="syncRuntimePermissions" type="xs:boolean"/>
+                                        <xs:element name="RebuildAppleMemoryMap" type="xs:boolean"/>
+                                        <xs:element name="SetupVirtualMap" type="xs:boolean"/>
+                                        <xs:element name="SignalAppleOS" type="xs:boolean"/>
+                                        <xs:element name="SyncRuntimePermissions" type="xs:boolean"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

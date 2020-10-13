@@ -129,60 +129,60 @@
                 <dict>
                     <key>MmioWhitelist</key>
                     <array>
-                        <xsl:for-each select="/oc:root/oc:booter/oc:mmioWhitelist/oc:dict">
+                        <xsl:for-each select="/oc:root/oc:Booter/oc:MmioWhitelist/oc:dict">
                             <dict>
                                 <key>Enabled</key>
-                                <xsl:element name="{@enabled}"/>
+                                <xsl:element name="{@Enabled}"/>
                                 <key>Address</key>
                                 <integer>
-                                    <xsl:value-of select="@address"/>
+                                    <xsl:value-of select="@Address"/>
                                 </integer>
                                 <key>Comment</key>
                                 <string>
-                                    <xsl:value-of select="@comment"/>
+                                    <xsl:value-of select="@Comment"/>
                                 </string>
                             </dict>
                         </xsl:for-each>
                     </array>
                     <key>Quirks</key>
                     <dict>
-                        <xsl:for-each select="/oc:root/oc:booter/oc:quirks">
+                        <xsl:for-each select="/oc:root/oc:Booter/oc:Quirks">
                             <key>AvoidRuntimeDefrag</key>
-                            <xsl:element name="{oc:avoidRuntimeDefrag}"/>
+                            <xsl:element name="{oc:AvoidRuntimeDefrag}"/>
                             <key>DevirtualiseMmio</key>
-                            <xsl:element name="{oc:devirtualiseMmio}"/>
+                            <xsl:element name="{oc:DevirtualiseMmio}"/>
                             <key>DisableSingleUser</key>
-                            <xsl:element name="{oc:disableSingleUser}"/>
+                            <xsl:element name="{oc:DisableSingleUser}"/>
                             <key>DisableVariableWrite</key>
-                            <xsl:element name="{oc:disableVariableWrite}"/>
+                            <xsl:element name="{oc:DisableVariableWrite}"/>
                             <key>DiscardHibernateMap</key>
-                            <xsl:element name="{oc:discardHibernateMap}"/>
+                            <xsl:element name="{oc:DiscardHibernateMap}"/>
                             <key>EnableSafeModeSlide</key>
-                            <xsl:element name="{oc:enableSafeModeSlide}"/>
+                            <xsl:element name="{oc:EnableSafeModeSlide}"/>
                             <key>EnableWriteUnprotector</key>
-                            <xsl:element name="{oc:enableWriteUnprotector}"/>
+                            <xsl:element name="{oc:EnableWriteUnprotector}"/>
                             <key>ForceExitBootServices</key>
-                            <xsl:element name="{oc:forceExitBootServices}"/>
+                            <xsl:element name="{oc:ForceExitBootServices}"/>
                             <key>ProtectMemoryRegions</key>
-                            <xsl:element name="{oc:protectMemoryRegions}"/>
+                            <xsl:element name="{oc:ProtectMemoryRegions}"/>
                             <key>ProtectSecureBoot</key>
-                            <xsl:element name="{oc:protectSecureBoot}"/>
+                            <xsl:element name="{oc:ProtectSecureBoot}"/>
                             <key>ProtectUefiServices</key>
-                            <xsl:element name="{oc:protectUefiServices}"/>
+                            <xsl:element name="{oc:ProtectUefiServices}"/>
                             <key>ProvideCustomSlide</key>
-                            <xsl:element name="{oc:provideCustomSlide}"/>
+                            <xsl:element name="{oc:ProvideCustomSlide}"/>
                             <key>ProvideMaxSlide</key>
                             <integer>
-                                <xsl:value-of select="oc:provideMaxSlide"/>
+                                <xsl:value-of select="oc:ProvideMaxSlide"/>
                             </integer>
                             <key>RebuildAppleMemoryMap</key>
-                            <xsl:element name="{oc:rebuildAppleMemoryMap}"/>
+                            <xsl:element name="{oc:RebuildAppleMemoryMap}"/>
                             <key>SetupVirtualMap</key>
-                            <xsl:element name="{oc:setupVirtualMap}"/>
+                            <xsl:element name="{oc:SetupVirtualMap}"/>
                             <key>SignalAppleOS</key>
-                            <xsl:element name="{oc:signalAppleOS}"/>
+                            <xsl:element name="{oc:SignalAppleOS}"/>
                             <key>SyncRuntimePermissions</key>
-                            <xsl:element name="{oc:syncRuntimePermissions}"/>
+                            <xsl:element name="{oc:SyncRuntimePermissions}"/>
                         </xsl:for-each>
                     </dict>
                 </dict>

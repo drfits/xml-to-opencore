@@ -55,35 +55,35 @@
             <ResetLogoStatus>false</ResetLogoStatus>
         </Quirks>
     </ACPI>
-    <booter>
-        <mmioWhitelist>
-            <dict enabled="false"
-                  comment="Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)"
-                  address="4275159040"/>
-            <dict enabled="false"
-                  comment="Generic: PCI root is a 0x1000 page memory region used by some firmwares"
-                  address="4278190080"/>
-        </mmioWhitelist>
-        <quirks>
-            <avoidRuntimeDefrag>false</avoidRuntimeDefrag>
-            <devirtualiseMmio>false</devirtualiseMmio>
-            <disableSingleUser>false</disableSingleUser>
-            <disableVariableWrite>false</disableVariableWrite>
-            <discardHibernateMap>false</discardHibernateMap>
-            <enableSafeModeSlide>false</enableSafeModeSlide>
-            <enableWriteUnprotector>false</enableWriteUnprotector>
-            <forceExitBootServices>false</forceExitBootServices>
-            <protectMemoryRegions>false</protectMemoryRegions>
-            <protectSecureBoot>false</protectSecureBoot>
-            <protectUefiServices>false</protectUefiServices>
-            <provideCustomSlide>false</provideCustomSlide>
-            <provideMaxSlide>0</provideMaxSlide>
-            <rebuildAppleMemoryMap>false</rebuildAppleMemoryMap>
-            <setupVirtualMap>false</setupVirtualMap>
-            <signalAppleOS>false</signalAppleOS>
-            <syncRuntimePermissions>false</syncRuntimePermissions>
-        </quirks>
-    </booter>
+    <Booter>
+        <MmioWhitelist>
+            <dict Enabled="false"
+                  Comment="Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)"
+                  Address="4275159040"/>
+            <dict Enabled="false"
+                  Comment="Generic: PCI root is a 0x1000 page memory region used by some firmwares"
+                  Address="4278190080"/>
+        </MmioWhitelist>
+        <Quirks>
+            <AvoidRuntimeDefrag>false</AvoidRuntimeDefrag>
+            <DevirtualiseMmio>false</DevirtualiseMmio>
+            <DisableSingleUser>false</DisableSingleUser>
+            <DisableVariableWrite>false</DisableVariableWrite>
+            <DiscardHibernateMap>false</DiscardHibernateMap>
+            <EnableSafeModeSlide>false</EnableSafeModeSlide>
+            <EnableWriteUnprotector>false</EnableWriteUnprotector>
+            <ForceExitBootServices>false</ForceExitBootServices>
+            <ProtectMemoryRegions>false</ProtectMemoryRegions>
+            <ProtectSecureBoot>false</ProtectSecureBoot>
+            <ProtectUefiServices>false</ProtectUefiServices>
+            <ProvideCustomSlide>false</ProvideCustomSlide>
+            <ProvideMaxSlide>0</ProvideMaxSlide>
+            <RebuildAppleMemoryMap>false</RebuildAppleMemoryMap>
+            <SetupVirtualMap>false</SetupVirtualMap>
+            <SignalAppleOS>false</SignalAppleOS>
+            <SyncRuntimePermissions>false</SyncRuntimePermissions>
+        </Quirks>
+    </Booter>
     <deviceProperties>
         <add>
             <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
@@ -250,7 +250,9 @@
                 <Arguments/>
                 <Auxiliary>false</Auxiliary>
                 <Comment>Not signed for security reasons</Comment>
-                <Path>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</Path>
+                <Path>
+                    PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI
+                </Path>
             </entry>
         </Entries>
         <Security>
