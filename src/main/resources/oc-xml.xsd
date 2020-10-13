@@ -137,10 +137,10 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="deviceProperties">
+                <xs:element name="DeviceProperties">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="add">
+                            <xs:element name="Add">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="device" minOccurs="0" maxOccurs="unbounded">
@@ -182,7 +182,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="delete">
+                            <xs:element name="Delete">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="device" minOccurs="0" maxOccurs="unbounded">

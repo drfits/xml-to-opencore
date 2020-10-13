@@ -84,17 +84,17 @@
             <SyncRuntimePermissions>false</SyncRuntimePermissions>
         </Quirks>
     </Booter>
-    <deviceProperties>
-        <add>
+    <DeviceProperties>
+        <Add>
             <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
                 <prop key="built-in">AQ==</prop>
             </device>
             <device path="PciRoot(0x0)/Pci(0x2,0x0)">
                 <prop key="AAPL,ig-platform-id">AwASWQ==</prop>
             </device>
-        </add>
-        <delete/>
-    </deviceProperties>
+        </Add>
+        <Delete/>
+    </DeviceProperties>
     <kernel>
         <add>
             <dict enabled="true" comment="Patch engine">

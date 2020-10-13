@@ -190,7 +190,7 @@
                 <dict>
                     <key>Add</key>
                     <dict>
-                        <xsl:for-each select="/oc:root/oc:deviceProperties/oc:add/oc:device">
+                        <xsl:for-each select="/oc:root/oc:DeviceProperties/oc:Add/oc:device">
                             <key>
                                 <xsl:value-of select="@path"/>
                             </key>
@@ -208,7 +208,7 @@
                     </dict>
                     <key>Delete</key>
                     <dict>
-                        <xsl:for-each select="/oc:root/oc:deviceProperties/oc:delete/oc:device">
+                        <xsl:for-each select="/oc:root/oc:DeviceProperties/oc:Delete/oc:device">
                             <key>
                                 <xsl:value-of select="@path"/>
                             </key>
