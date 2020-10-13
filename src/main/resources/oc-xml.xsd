@@ -6,59 +6,59 @@
     <xs:element name="root">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="acpi">
+                <xs:element name="ACPI">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="patch">
+                            <xs:element name="Patch">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="count" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="find" type="xs:base64Binary"/>
-                                                    <xs:element name="limit" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="mask" type="xs:base64Binary"/>
-                                                    <xs:element name="oemTableId" type="xs:base64Binary"/>
-                                                    <xs:element name="replace" type="xs:base64Binary"/>
-                                                    <xs:element name="replaceMask" type="xs:base64Binary"/>
-                                                    <xs:element name="skip" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="tableLength" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="tableSignature" type="xs:base64Binary"/>
+                                                    <xs:element name="Count" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Find" type="xs:base64Binary"/>
+                                                    <xs:element name="Limit" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Mask" type="xs:base64Binary"/>
+                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
+                                                    <xs:element name="Replace" type="xs:base64Binary"/>
+                                                    <xs:element name="ReplaceMask" type="xs:base64Binary"/>
+                                                    <xs:element name="Skip" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="delete">
+                            <xs:element name="Delete">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="all" type="xs:boolean"/>
-                                                    <xs:element name="oemTableId" type="xs:base64Binary"/>
-                                                    <xs:element name="tableLength" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="tableSignature" type="xs:base64Binary"/>
+                                                    <xs:element name="All" type="xs:boolean"/>
+                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
+                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="add">
+                            <xs:element name="Add">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
-                                                <xs:attribute name="comment" type="xs:string"/>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="path" use="required">
+                                                <xs:attribute name="Comment" type="xs:string"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Path" use="required">
                                                     <xs:simpleType>
                                                         <xs:restriction base="xs:string">
                                                             <xs:minLength value="1"/>
@@ -71,17 +71,17 @@
                                 </xs:complexType>
                                 <xs:unique name="acpi-add-uniqueAddPath">
                                     <xs:selector xpath="./*"/>
-                                    <xs:field xpath="@path"/>
+                                    <xs:field xpath="@Path"/>
                                 </xs:unique>
                             </xs:element>
-                            <xs:element name="quirks">
+                            <xs:element name="Quirks">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="fadtEnableReset" type="xs:boolean"/>
-                                        <xs:element name="normalizeHeaders" type="xs:boolean"/>
-                                        <xs:element name="rebaseRegions" type="xs:boolean"/>
-                                        <xs:element name="resetHwSig" type="xs:boolean"/>
-                                        <xs:element name="resetLogoStatus" type="xs:boolean"/>
+                                        <xs:element name="FadtEnableReset" type="xs:boolean"/>
+                                        <xs:element name="NormalizeHeaders" type="xs:boolean"/>
+                                        <xs:element name="RebaseRegions" type="xs:boolean"/>
+                                        <xs:element name="ResetHwSig" type="xs:boolean"/>
+                                        <xs:element name="ResetLogoStatus" type="xs:boolean"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

@@ -14,114 +14,114 @@
                 <dict>
                     <key>Patch</key>
                     <array>
-                        <xsl:for-each select="/oc:root/oc:acpi/oc:patch/oc:dict">
+                        <xsl:for-each select="/oc:root/oc:ACPI/oc:Patch/oc:dict">
                             <dict>
                                 <key>Comment</key>
                                 <string>
-                                    <xsl:value-of select="@comment"/>
+                                    <xsl:value-of select="@Comment"/>
                                 </string>
                                 <key>Count</key>
                                 <integer>
-                                    <xsl:value-of select="oc:count"/>
+                                    <xsl:value-of select="oc:Count"/>
                                 </integer>
                                 <key>Enabled</key>
-                                <xsl:element name="{@enabled}"/>
+                                <xsl:element name="{@Enabled}"/>
                                 <key>Find</key>
                                 <data>
-                                    <xsl:value-of select="oc:find"/>
+                                    <xsl:value-of select="oc:Find"/>
                                 </data>
                                 <key>Limit</key>
                                 <integer>
-                                    <xsl:value-of select="oc:limit"/>
+                                    <xsl:value-of select="oc:Limit"/>
                                 </integer>
                                 <key>Mask</key>
                                 <data>
-                                    <xsl:value-of select="oc:mask"/>
+                                    <xsl:value-of select="oc:Mask"/>
                                 </data>
                                 <key>OemTableId</key>
                                 <data>
-                                    <xsl:value-of select="oc:oemTableId"/>
+                                    <xsl:value-of select="oc:OemTableId"/>
                                 </data>
                                 <key>Replace</key>
                                 <data>
-                                    <xsl:value-of select="oc:replace"/>
+                                    <xsl:value-of select="oc:Replace"/>
                                 </data>
                                 <key>ReplaceMask</key>
                                 <data>
-                                    <xsl:value-of select="oc:replaceMask"/>
+                                    <xsl:value-of select="oc:ReplaceMask"/>
                                 </data>
                                 <key>Skip</key>
                                 <integer>
-                                    <xsl:value-of select="oc:skip"/>
+                                    <xsl:value-of select="oc:Skip"/>
                                 </integer>
                                 <key>TableLength</key>
                                 <integer>
-                                    <xsl:value-of select="oc:tableLength"/>
+                                    <xsl:value-of select="oc:TableLength"/>
                                 </integer>
                                 <key>TableSignature</key>
                                 <data>
-                                    <xsl:value-of select="oc:tableSignature"/>
+                                    <xsl:value-of select="oc:TableSignature"/>
                                 </data>
                             </dict>
                         </xsl:for-each>
                     </array>
                     <key>Delete</key>
                     <array>
-                        <xsl:for-each select="/oc:root/oc:acpi/oc:delete/oc:dict">
+                        <xsl:for-each select="/oc:root/oc:ACPI/oc:Delete/oc:dict">
                             <dict>
                                 <key>All</key>
-                                <xsl:element name="{oc:all}"/>
+                                <xsl:element name="{oc:All}"/>
                                 <key>Comment</key>
                                 <string>
-                                    <xsl:value-of select="@comment"/>
+                                    <xsl:value-of select="@Comment"/>
                                 </string>
                                 <key>Enabled</key>
-                                <xsl:element name="{@enabled}"/>
+                                <xsl:element name="{@Enabled}"/>
                                 <key>OemTableId</key>
                                 <data>
-                                    <xsl:value-of select="oc:oemTableId"/>
+                                    <xsl:value-of select="oc:OemTableId"/>
                                 </data>
                                 <key>TableLength</key>
                                 <integer>
-                                    <xsl:value-of select="oc:tableLength"/>
+                                    <xsl:value-of select="oc:TableLength"/>
                                 </integer>
                                 <key>TableSignature</key>
                                 <data>
-                                    <xsl:value-of select="oc:tableSignature"/>
+                                    <xsl:value-of select="oc:TableSignature"/>
                                 </data>
                             </dict>
                         </xsl:for-each>
                     </array>
                     <key>Add</key>
                     <array>
-                        <xsl:for-each select="/oc:root/oc:acpi/oc:add/oc:dict">
+                        <xsl:for-each select="/oc:root/oc:ACPI/oc:Add/oc:dict">
                             <dict>
                                 <key>Comment</key>
                                 <string>
-                                    <xsl:value-of select="@comment"/>
+                                    <xsl:value-of select="@Comment"/>
                                 </string>
                                 <key>Enabled</key>
-                                <xsl:element name="{@enabled}"/>
+                                <xsl:element name="{@Enabled}"/>
                                 <key>Path</key>
                                 <string>
-                                    <xsl:value-of select="@path"/>
+                                    <xsl:value-of select="@Path"/>
                                 </string>
                             </dict>
                         </xsl:for-each>
                     </array>
                     <key>Quirks</key>
                     <dict>
-                        <xsl:for-each select="/oc:root/oc:acpi/oc:quirks">
+                        <xsl:for-each select="/oc:root/oc:ACPI/oc:Quirks">
                             <key>FadtEnableReset</key>
-                            <xsl:element name="{oc:fadtEnableReset}"/>
+                            <xsl:element name="{oc:FadtEnableReset}"/>
                             <key>NormalizeHeaders</key>
-                            <xsl:element name="{oc:normalizeHeaders}"/>
+                            <xsl:element name="{oc:NormalizeHeaders}"/>
                             <key>RebaseRegions</key>
-                            <xsl:element name="{oc:rebaseRegions}"/>
+                            <xsl:element name="{oc:RebaseRegions}"/>
                             <key>ResetHwSig</key>
-                            <xsl:element name="{oc:resetHwSig}"/>
+                            <xsl:element name="{oc:ResetHwSig}"/>
                             <key>ResetLogoStatus</key>
-                            <xsl:element name="{oc:resetLogoStatus}"/>
+                            <xsl:element name="{oc:ResetLogoStatus}"/>
                         </xsl:for-each>
                     </dict>
                 </dict>

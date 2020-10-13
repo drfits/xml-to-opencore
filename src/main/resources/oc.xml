@@ -2,59 +2,59 @@
 <root xmlns="https://www.drfits.com/schema/oc"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://www.drfits.com/schema/oc oc-xml.xsd">
-    <acpi>
-        <patch>
-            <dict enabled="false" comment="_Q11 to XQ11">
-                <count>1</count>
-                <find>X1ExMQ==</find>
-                <limit>0</limit>
-                <mask/>
-                <oemTableId/>
-                <replace>WFExMQ==</replace>
-                <replaceMask/>
-                <skip>0</skip>
-                <tableLength>0</tableLength>
-                <tableSignature/>
+    <ACPI>
+        <Patch>
+            <dict Enabled="false" Comment="_Q11 to XQ11">
+                <Count>1</Count>
+                <Find>X1ExMQ==</Find>
+                <Limit>0</Limit>
+                <Mask/>
+                <OemTableId/>
+                <Replace>WFExMQ==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+                <TableLength>0</TableLength>
+                <TableSignature/>
             </dict>
-            <dict enabled="false" comment="_Q12 to XQ12">
-                <count>1</count>
-                <find>X1ExMg==</find>
-                <limit>0</limit>
-                <mask/>
-                <oemTableId/>
-                <replace>WFExMg==</replace>
-                <replaceMask/>
-                <skip>0</skip>
-                <tableLength>0</tableLength>
-                <tableSignature/>
+            <dict Enabled="false" Comment="_Q12 to XQ12">
+                <Count>1</Count>
+                <Find>X1ExMg==</Find>
+                <Limit>0</Limit>
+                <Mask/>
+                <OemTableId/>
+                <Replace>WFExMg==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+                <TableLength>0</TableLength>
+                <TableSignature/>
             </dict>
-        </patch>
-        <delete>
-            <dict enabled="false" comment="Delete CpuPm">
-                <all>false</all>
-                <oemTableId>Q3B1UG0AAAA=</oemTableId>
-                <tableLength>0</tableLength>
-                <tableSignature>U1NEVA==</tableSignature>
+        </Patch>
+        <Delete>
+            <dict Enabled="false" Comment="Delete CpuPm">
+                <All>false</All>
+                <OemTableId>Q3B1UG0AAAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
             </dict>
-            <dict enabled="false" comment="Delete Cpu0Ist">
-                <all>false</all>
-                <oemTableId>Q3B1MElzdAA=</oemTableId>
-                <tableLength>0</tableLength>
-                <tableSignature>U1NEVA==</tableSignature>
+            <dict Enabled="false" Comment="Delete Cpu0Ist">
+                <All>false</All>
+                <OemTableId>Q3B1MElzdAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
             </dict>
-        </delete>
-        <add>
-            <dict enabled="false" comment="Custom DSDT" path="DSDT.aml"/>
-            <dict enabled="false" comment="Custom SSDT" path="SSDT.aml"/>
-        </add>
-        <quirks>
-            <fadtEnableReset>false</fadtEnableReset>
-            <normalizeHeaders>false</normalizeHeaders>
-            <rebaseRegions>false</rebaseRegions>
-            <resetHwSig>false</resetHwSig>
-            <resetLogoStatus>false</resetLogoStatus>
-        </quirks>
-    </acpi>
+        </Delete>
+        <Add>
+            <dict Enabled="false" Comment="Custom DSDT" Path="DSDT.aml"/>
+            <dict Enabled="false" Comment="Custom SSDT" Path="SSDT.aml"/>
+        </Add>
+        <Quirks>
+            <FadtEnableReset>false</FadtEnableReset>
+            <NormalizeHeaders>false</NormalizeHeaders>
+            <RebaseRegions>false</RebaseRegions>
+            <ResetHwSig>false</ResetHwSig>
+            <ResetLogoStatus>false</ResetLogoStatus>
+        </Quirks>
+    </ACPI>
     <booter>
         <mmioWhitelist>
             <dict enabled="false"
