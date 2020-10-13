@@ -227,16 +227,16 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="kernel">
+                <xs:element name="Kernel">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="add">
+                            <xs:element name="Add">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="arch">
+                                                    <xs:element name="Arch">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
                                                                 <xs:enumeration value="Any"/>
@@ -245,26 +245,26 @@
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="bundlePath" type="xs:string"/>
-                                                    <xs:element name="executablePath" type="xs:string"/>
-                                                    <xs:element name="maxKernel" type="xs:string"/>
-                                                    <xs:element name="minKernel" type="xs:string"/>
-                                                    <xs:element name="plistPath" type="xs:string"/>
+                                                    <xs:element name="BundlePath" type="xs:string"/>
+                                                    <xs:element name="ExecutablePath" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="PlistPath" type="xs:string"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="block">
+                            <xs:element name="Block">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="arch">
+                                                    <xs:element name="Arch">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
                                                                 <xs:enumeration value="Any"/>
@@ -273,35 +273,35 @@
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="identifier" type="xs:string"/>
-                                                    <xs:element name="maxKernel" type="xs:string"/>
-                                                    <xs:element name="minKernel" type="xs:string"/>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="emulate">
+                            <xs:element name="Emulate">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="cpuid1Data" type="xs:base64Binary"/>
-                                        <xs:element name="cpuid1Mask" type="xs:base64Binary"/>
-                                        <xs:element name="dummyPowerManagement" type="xs:boolean"/>
-                                        <xs:element name="maxKernel" type="xs:string"/>
-                                        <xs:element name="minKernel" type="xs:string"/>
+                                        <xs:element name="Cpuid1Data" type="xs:base64Binary"/>
+                                        <xs:element name="Cpuid1Mask" type="xs:base64Binary"/>
+                                        <xs:element name="DummyPowerManagement" type="xs:boolean"/>
+                                        <xs:element name="MaxKernel" type="xs:string"/>
+                                        <xs:element name="MinKernel" type="xs:string"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="force">
+                            <xs:element name="Force">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="arch">
+                                                    <xs:element name="Arch">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
                                                                 <xs:enumeration value="Any"/>
@@ -310,27 +310,27 @@
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="bundlePath" type="xs:string"/>
-                                                    <xs:element name="identifier" type="xs:string"/>
-                                                    <xs:element name="executablePath" type="xs:string"/>
-                                                    <xs:element name="maxKernel" type="xs:string"/>
-                                                    <xs:element name="minKernel" type="xs:string"/>
-                                                    <xs:element name="plistPath" type="xs:string"/>
+                                                    <xs:element name="BundlePath" type="xs:string"/>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="ExecutablePath" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="PlistPath" type="xs:string"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="patch">
+                            <xs:element name="Patch">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="arch">
+                                                    <xs:element name="Arch">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
                                                                 <xs:enumeration value="Any"/>
@@ -339,53 +339,53 @@
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="base" type="xs:string"/>
-                                                    <xs:element name="count" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="find" type="xs:base64Binary"/>
-                                                    <xs:element name="identifier" type="xs:string"/>
-                                                    <xs:element name="limit" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="mask" type="xs:base64Binary"/>
-                                                    <xs:element name="maxKernel" type="xs:string"/>
-                                                    <xs:element name="minKernel" type="xs:string"/>
-                                                    <xs:element name="replace" type="xs:base64Binary"/>
-                                                    <xs:element name="replaceMask" type="xs:base64Binary"/>
-                                                    <xs:element name="skip" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Base" type="xs:string"/>
+                                                    <xs:element name="Count" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Find" type="xs:base64Binary"/>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="Limit" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Mask" type="xs:base64Binary"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="Replace" type="xs:base64Binary"/>
+                                                    <xs:element name="ReplaceMask" type="xs:base64Binary"/>
+                                                    <xs:element name="Skip" type="xs:nonNegativeInteger"/>
                                                 </xs:sequence>
-                                                <xs:attribute name="enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="quirks">
+                            <xs:element name="Quirks">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="appleCpuPmCfgLock" type="xs:boolean"/>
-                                        <xs:element name="appleXcpmCfgLock" type="xs:boolean"/>
-                                        <xs:element name="appleXcpmExtraMsrs" type="xs:boolean"/>
-                                        <xs:element name="appleXcpmForceBoost" type="xs:boolean"/>
-                                        <xs:element name="customSMBIOSGuid" type="xs:boolean"/>
-                                        <xs:element name="disableIoMapper" type="xs:boolean"/>
-                                        <xs:element name="disableLinkeditJettison" type="xs:boolean"/>
-                                        <xs:element name="disableRtcChecksum" type="xs:boolean"/>
-                                        <xs:element name="extendBTFeatureFlags" type="xs:boolean"/>
-                                        <xs:element name="externalDiskIcons" type="xs:boolean"/>
-                                        <xs:element name="increasePciBarSize" type="xs:boolean"/>
-                                        <xs:element name="lapicKernelPanic" type="xs:boolean"/>
-                                        <xs:element name="legacyCommpage" type="xs:boolean"/>
-                                        <xs:element name="panicNoKextDump" type="xs:boolean"/>
-                                        <xs:element name="powerTimeoutKernelPanic" type="xs:boolean"/>
-                                        <xs:element name="thirdPartyDrives" type="xs:boolean"/>
-                                        <xs:element name="xhciPortLimit" type="xs:boolean"/>
+                                        <xs:element name="AppleCpuPmCfgLock" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmCfgLock" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmExtraMsrs" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmForceBoost" type="xs:boolean"/>
+                                        <xs:element name="CustomSMBIOSGuid" type="xs:boolean"/>
+                                        <xs:element name="DisableIoMapper" type="xs:boolean"/>
+                                        <xs:element name="DisableLinkeditJettison" type="xs:boolean"/>
+                                        <xs:element name="DisableRtcChecksum" type="xs:boolean"/>
+                                        <xs:element name="ExtendBTFeatureFlags" type="xs:boolean"/>
+                                        <xs:element name="ExternalDiskIcons" type="xs:boolean"/>
+                                        <xs:element name="IncreasePciBarSize" type="xs:boolean"/>
+                                        <xs:element name="LapicKernelPanic" type="xs:boolean"/>
+                                        <xs:element name="LegacyCommpage" type="xs:boolean"/>
+                                        <xs:element name="PanicNoKextDump" type="xs:boolean"/>
+                                        <xs:element name="PowerTimeoutKernelPanic" type="xs:boolean"/>
+                                        <xs:element name="ThirdPartyDrives" type="xs:boolean"/>
+                                        <xs:element name="XhciPortLimit" type="xs:boolean"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="scheme">
+                            <xs:element name="Scheme">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="fuzzyMatch" type="xs:boolean"/>
-                                        <xs:element name="kernelArch">
+                                        <xs:element name="FuzzyMatch" type="xs:boolean"/>
+                                        <xs:element name="KernelArch">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:enumeration value="Any"/>
@@ -395,7 +395,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="kernelCache">
+                                        <xs:element name="KernelCache">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:enumeration value="Auto"/>

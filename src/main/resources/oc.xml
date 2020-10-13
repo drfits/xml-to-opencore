@@ -95,132 +95,132 @@
         </Add>
         <Delete/>
     </DeviceProperties>
-    <kernel>
-        <add>
-            <dict enabled="true" comment="Patch engine">
-                <arch>x86_64</arch>
-                <bundlePath>Lilu.kext</bundlePath>
-                <executablePath>Contents/MacOS/Lilu</executablePath>
-                <maxKernel/>
-                <minKernel>12.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+    <Kernel>
+        <Add>
+            <dict Enabled="true" Comment="Patch engine">
+                <Arch>x86_64</Arch>
+                <BundlePath>Lilu.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/Lilu</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="true" comment="SMC emulator">
-                <arch>x86_64</arch>
-                <bundlePath>VirtualSMC.kext</bundlePath>
-                <executablePath>Contents/MacOS/VirtualSMC</executablePath>
-                <maxKernel/>
-                <minKernel>12.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="true" Comment="SMC emulator">
+                <Arch>x86_64</Arch>
+                <BundlePath>VirtualSMC.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/VirtualSMC</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="false" comment="Video patches">
-                <arch>x86_64</arch>
-                <bundlePath>WhateverGreen.kext</bundlePath>
-                <executablePath>Contents/MacOS/WhateverGreen</executablePath>
-                <maxKernel/>
-                <minKernel>12.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="false" Comment="Video patches">
+                <Arch>x86_64</Arch>
+                <BundlePath>WhateverGreen.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/WhateverGreen</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="false" comment="Audio patches">
-                <arch>x86_64</arch>
-                <bundlePath>AppleALC.kext</bundlePath>
-                <executablePath>Contents/MacOS/AppleALC</executablePath>
-                <maxKernel/>
-                <minKernel>12.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="false" Comment="Audio patches">
+                <Arch>x86_64</Arch>
+                <BundlePath>AppleALC.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/AppleALC</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="false" comment="Intel Internet LAN">
-                <arch>x86_64</arch>
-                <bundlePath>IntelMausi.kext</bundlePath>
-                <executablePath>Contents/MacOS/IntelMausi</executablePath>
-                <maxKernel/>
-                <minKernel>12.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="false" Comment="Intel Internet LAN">
+                <Arch>x86_64</Arch>
+                <BundlePath>IntelMausi.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/IntelMausi</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="false" comment="XHC ports configuration">
-                <arch>x86_64</arch>
-                <bundlePath>Legacy_USB3.kext</bundlePath>
-                <executablePath/>
-                <maxKernel/>
-                <minKernel>15.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="false" Comment="XHC ports configuration">
+                <Arch>x86_64</Arch>
+                <BundlePath>Legacy_USB3.kext</BundlePath>
+                <ExecutablePath/>
+                <MaxKernel/>
+                <MinKernel>15.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict enabled="false" comment="AppleMCEReporter disabler">
-                <arch>x86_64</arch>
-                <bundlePath>AppleMCEReporterDisabler.kext</bundlePath>
-                <executablePath/>
-                <maxKernel/>
-                <minKernel>19.0.0</minKernel>
-                <plistPath>Contents/Info.plist</plistPath>
+            <dict Enabled="false" Comment="AppleMCEReporter disabler">
+                <Arch>x86_64</Arch>
+                <BundlePath>AppleMCEReporterDisabler.kext</BundlePath>
+                <ExecutablePath/>
+                <MaxKernel/>
+                <MinKernel>19.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-        </add>
-        <block>
-            <dict enabled="false" comment="Disable AppleTyMCEDriver">
-                <arch>Any</arch>
-                <identifier>com.apple.driver.AppleTyMCEDriver</identifier>
-                <maxKernel/>
-                <minKernel/>
+        </Add>
+        <Block>
+            <dict Enabled="false" Comment="Disable AppleTyMCEDriver">
+                <Arch>Any</Arch>
+                <Identifier>com.apple.driver.AppleTyMCEDriver</Identifier>
+                <MaxKernel/>
+                <MinKernel/>
             </dict>
-        </block>
-        <emulate>
-            <cpuid1Data/>
-            <cpuid1Mask/>
-            <dummyPowerManagement>false</dummyPowerManagement>
-            <maxKernel/>
-            <minKernel/>
-        </emulate>
-        <force>
-            <dict enabled="false" comment="">
-                <arch>Any</arch>
-                <bundlePath>System/Library/Extensions/IONetworkingFamily.kext</bundlePath>
-                <identifier>com.apple.iokit.IONetworkingFamily</identifier>
-                <executablePath>Contents/MacOS/IONetworkingFamily</executablePath>
-                <maxKernel>13.99.99</maxKernel>
-                <minKernel/>
-                <plistPath>Contents/Info.plist</plistPath>
+        </Block>
+        <Emulate>
+            <Cpuid1Data/>
+            <Cpuid1Mask/>
+            <DummyPowerManagement>false</DummyPowerManagement>
+            <MaxKernel/>
+            <MinKernel/>
+        </Emulate>
+        <Force>
+            <dict Enabled="false" Comment="">
+                <Arch>Any</Arch>
+                <BundlePath>System/Library/Extensions/IONetworkingFamily.kext</BundlePath>
+                <Identifier>com.apple.iokit.IONetworkingFamily</Identifier>
+                <ExecutablePath>Contents/MacOS/IONetworkingFamily</ExecutablePath>
+                <MaxKernel>13.99.99</MaxKernel>
+                <MinKernel/>
+                <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-        </force>
-        <patch>
-            <dict enabled="false" comment="Disable RTC wake scheduling">
-                <arch>Any</arch>
-                <base>__ZN8AppleRTC18setupDateTimeAlarmEPK11RTCDateTime</base>
-                <count>1</count>
-                <find/>
-                <identifier>com.apple.driver.AppleRTC</identifier>
-                <limit>0</limit>
-                <mask/>
-                <maxKernel/>
-                <minKernel>19.0.0</minKernel>
-                <replace>ww==</replace>
-                <replaceMask/>
-                <skip>0</skip>
+        </Force>
+        <Patch>
+            <dict Enabled="false" Comment="Disable RTC wake scheduling">
+                <Arch>Any</Arch>
+                <Base>__ZN8AppleRTC18setupDateTimeAlarmEPK11RTCDateTime</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>com.apple.driver.AppleRTC</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel>19.0.0</MinKernel>
+                <Replace>ww==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
             </dict>
-        </patch>
-        <quirks>
-            <appleCpuPmCfgLock>false</appleCpuPmCfgLock>
-            <appleXcpmCfgLock>false</appleXcpmCfgLock>
-            <appleXcpmExtraMsrs>false</appleXcpmExtraMsrs>
-            <appleXcpmForceBoost>false</appleXcpmForceBoost>
-            <customSMBIOSGuid>false</customSMBIOSGuid>
-            <disableIoMapper>false</disableIoMapper>
-            <disableLinkeditJettison>false</disableLinkeditJettison>
-            <disableRtcChecksum>false</disableRtcChecksum>
-            <extendBTFeatureFlags>false</extendBTFeatureFlags>
-            <externalDiskIcons>false</externalDiskIcons>
-            <increasePciBarSize>false</increasePciBarSize>
-            <lapicKernelPanic>false</lapicKernelPanic>
-            <legacyCommpage>false</legacyCommpage>
-            <panicNoKextDump>false</panicNoKextDump>
-            <powerTimeoutKernelPanic>false</powerTimeoutKernelPanic>
-            <thirdPartyDrives>false</thirdPartyDrives>
-            <xhciPortLimit>false</xhciPortLimit>
-        </quirks>
-        <scheme>
-            <fuzzyMatch>true</fuzzyMatch>
-            <kernelArch>x86_64</kernelArch>
-            <kernelCache>Auto</kernelCache>
-        </scheme>
-    </kernel>
+        </Patch>
+        <Quirks>
+            <AppleCpuPmCfgLock>false</AppleCpuPmCfgLock>
+            <AppleXcpmCfgLock>false</AppleXcpmCfgLock>
+            <AppleXcpmExtraMsrs>false</AppleXcpmExtraMsrs>
+            <AppleXcpmForceBoost>false</AppleXcpmForceBoost>
+            <CustomSMBIOSGuid>false</CustomSMBIOSGuid>
+            <DisableIoMapper>false</DisableIoMapper>
+            <DisableLinkeditJettison>true</DisableLinkeditJettison>
+            <DisableRtcChecksum>false</DisableRtcChecksum>
+            <ExtendBTFeatureFlags>false</ExtendBTFeatureFlags>
+            <ExternalDiskIcons>false</ExternalDiskIcons>
+            <IncreasePciBarSize>false</IncreasePciBarSize>
+            <LapicKernelPanic>false</LapicKernelPanic>
+            <LegacyCommpage>false</LegacyCommpage>
+            <PanicNoKextDump>false</PanicNoKextDump>
+            <PowerTimeoutKernelPanic>false</PowerTimeoutKernelPanic>
+            <ThirdPartyDrives>false</ThirdPartyDrives>
+            <XhciPortLimit>false</XhciPortLimit>
+        </Quirks>
+        <Scheme>
+            <FuzzyMatch>true</FuzzyMatch>
+            <KernelArch>x86_64</KernelArch>
+            <KernelCache>Auto</KernelCache>
+        </Scheme>
+    </Kernel>
     <Misc>
         <Boot>
             <ConsoleAttributes>0</ConsoleAttributes>
@@ -250,9 +250,7 @@
                 <Arguments/>
                 <Auxiliary>false</Auxiliary>
                 <Comment>Not signed for security reasons</Comment>
-                <Path>
-                    PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI
-                </Path>
+                <Path>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</Path>
             </entry>
         </Entries>
         <Security>
