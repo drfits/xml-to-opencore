@@ -727,8 +727,209 @@
                     <xsl:element name="{/oc:root/oc:PlatformInfo/oc:Automatic/text()}"/>
                     <xsl:choose>
                         <xsl:when test="/oc:root/oc:PlatformInfo/oc:Automatic/text() = 'false'">
-                            <key>#WARNING</key>
-                            <string>Automatic "false" is not implemented.</string>
+                            <key>DataHub</key>
+                            <dict>
+                                <xsl:for-each select="/oc:root/oc:PlatformInfo/oc:DataHub">
+                                    <key>PlatformName</key>
+                                    <string>
+                                        <xsl:value-of select="oc:PlatformName"/>
+                                    </string>
+                                    <key>SystemProductName</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemProductName"/>
+                                    </string>
+                                    <key>SystemSerialNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemSerialNumber"/>
+                                    </string>
+                                    <key>SystemUUID</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemUUID"/>
+                                    </string>
+                                    <key>BoardProduct</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardProduct"/>
+                                    </string>
+                                    <key>BoardRevision</key>
+                                    <data>
+                                        <xsl:value-of select="oc:BoardRevision"/>
+                                    </data>
+                                    <key>StartupPowerEvents</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:StartupPowerEvents"/>
+                                    </integer>
+                                    <key>InitialTSC</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:InitialTSC"/>
+                                    </integer>
+                                    <key>FSBFrequency</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:FSBFrequency"/>
+                                    </integer>
+                                    <key>ARTFrequency</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:ARTFrequency"/>
+                                    </integer>
+                                    <key>DevicePathsSupported</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:DevicePathsSupported"/>
+                                    </integer>
+                                    <key>SmcRevision</key>
+                                    <data>
+                                        <xsl:value-of select="oc:SmcRevision"/>
+                                    </data>
+                                    <key>SmcBranch</key>
+                                    <data>
+                                        <xsl:value-of select="oc:SmcBranch"/>
+                                    </data>
+                                    <key>SmcPlatform</key>
+                                    <data>
+                                        <xsl:value-of select="oc:SmcPlatform"/>
+                                    </data>
+                                </xsl:for-each>
+                            </dict>
+                            <key>PlatformNVRAM</key>
+                            <dict>
+                                <xsl:for-each select="/oc:root/oc:PlatformInfo/oc:PlatformNVRAM">
+                                    <key>BID</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BID"/>
+                                    </string>
+                                    <key>ROM</key>
+                                    <data>
+                                        <xsl:value-of select="oc:ROM"/>
+                                    </data>
+                                    <key>MLB</key>
+                                    <string>
+                                        <xsl:value-of select="oc:MLB"/>
+                                    </string>
+                                    <key>FirmwareFeatures</key>
+                                    <data>
+                                        <xsl:value-of select="oc:FirmwareFeatures"/>
+                                    </data>
+                                    <key>FirmwareFeaturesMask</key>
+                                    <data>
+                                        <xsl:value-of select="oc:FirmwareFeaturesMask"/>
+                                    </data>
+                                </xsl:for-each>
+                            </dict>
+                            <key>SMBIOS</key>
+                            <dict>
+                                <xsl:for-each select="/oc:root/oc:PlatformInfo/oc:SMBIOS">
+                                    <key>BIOSReleaseDate</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BIOSReleaseDate"/>
+                                    </string>
+                                    <key>BIOSVendor</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BIOSVendor"/>
+                                    </string>
+                                    <key>BIOSVersion</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BIOSVersion"/>
+                                    </string>
+                                    <key>BoardAssetTag</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardAssetTag"/>
+                                    </string>
+                                    <key>BoardLocationInChassis</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardLocationInChassis"/>
+                                    </string>
+                                    <key>BoardManufacturer</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardManufacturer"/>
+                                    </string>
+                                    <key>BoardProduct</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardProduct"/>
+                                    </string>
+                                    <key>BoardSerialNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardSerialNumber"/>
+                                    </string>
+                                    <key>BoardType</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:BoardType"/>
+                                    </integer>
+                                    <key>BoardVersion</key>
+                                    <string>
+                                        <xsl:value-of select="oc:BoardVersion"/>
+                                    </string>
+                                    <key>ChassisAssetTag</key>
+                                    <string>
+                                        <xsl:value-of select="oc:ChassisAssetTag"/>
+                                    </string>
+                                    <key>ChassisManufacturer</key>
+                                    <string>
+                                        <xsl:value-of select="oc:ChassisManufacturer"/>
+                                    </string>
+                                    <key>ChassisSerialNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:ChassisSerialNumber"/>
+                                    </string>
+                                    <key>ChassisType</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:ChassisType"/>
+                                    </integer>
+                                    <key>ChassisVersion</key>
+                                    <string>
+                                        <xsl:value-of select="oc:ChassisVersion"/>
+                                    </string>
+                                    <key>FirmwareFeatures</key>
+                                    <data>
+                                        <xsl:value-of select="oc:FirmwareFeatures"/>
+                                    </data>
+                                    <key>FirmwareFeaturesMask</key>
+                                    <data>
+                                        <xsl:value-of select="oc:FirmwareFeaturesMask"/>
+                                    </data>
+                                    <key>MemoryFormFactor</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:MemoryFormFactor"/>
+                                    </integer>
+                                    <key>PlatformFeature</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:PlatformFeature"/>
+                                    </integer>
+                                    <key>ProcessorType</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:ProcessorType"/>
+                                    </integer>
+                                    <key>SmcVersion</key>
+                                    <data>
+                                        <xsl:value-of select="oc:SmcVersion"/>
+                                    </data>
+                                    <key>SystemFamily</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemFamily"/>
+                                    </string>
+                                    <key>SystemManufacturer</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemManufacturer"/>
+                                    </string>
+                                    <key>SystemProductName</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemProductName"/>
+                                    </string>
+                                    <key>SystemSKUNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemSKUNumber"/>
+                                    </string>
+                                    <key>SystemSerialNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemSerialNumber"/>
+                                    </string>
+                                    <key>SystemUUID</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemUUID"/>
+                                    </string>
+                                    <key>SystemVersion</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemVersion"/>
+                                    </string>
+                                </xsl:for-each>
+                            </dict>
                         </xsl:when>
                         <xsl:otherwise>
                             <key>Generic</key>

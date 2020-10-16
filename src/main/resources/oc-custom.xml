@@ -347,18 +347,60 @@
         <WriteFlash>true</WriteFlash>
     </NVRAM>
     <PlatformInfo>
-        <Automatic>true</Automatic>
-        <Generic>
-            <SpoofVendor>false</SpoofVendor>
-            <AdviseWindows>false</AdviseWindows>
-            <SystemMemoryStatus>Auto</SystemMemoryStatus>
-            <ProcessorType>0</ProcessorType>
+        <Automatic>false</Automatic>
+        <DataHub>
+            <ARTFrequency>0</ARTFrequency>
+            <BoardProduct>Mac-AA95B1DDAB278B95</BoardProduct>
+            <BoardRevision>Bw==</BoardRevision>
+            <DevicePathsSupported>1</DevicePathsSupported>
+            <FSBFrequency>0</FSBFrequency>
+            <InitialTSC>0</InitialTSC>
+            <PlatformName>platform</PlatformName>
+            <SmcBranch>ajEzOF85AAA=</SmcBranch>
+            <SmcPlatform>ajEzOAAAAAA=</SmcPlatform>
+            <SmcRevision>AkYPAAAS</SmcRevision>
+            <StartupPowerEvents>0</StartupPowerEvents>
             <SystemProductName>iMac19,1</SystemProductName>
             <SystemSerialNumber>W00000000001</SystemSerialNumber>
             <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
+        </DataHub>
+        <PlatformNVRAM>
+            <BID>Mac-AA95B1DDAB278B95</BID>
+            <FirmwareFeatures>dvWP/QAAAAA=</FirmwareFeatures>
+            <FirmwareFeaturesMask>f//f/wAAAAA=</FirmwareFeaturesMask>
             <MLB>M0000000000000001</MLB>
             <ROM>ESIzRFVm</ROM>
-        </Generic>
+        </PlatformNVRAM>
+        <SMBIOS>
+            <BIOSReleaseDate>06/15/2020</BIOSReleaseDate>
+            <BIOSVendor>Acidanthera</BIOSVendor>
+            <BIOSVersion>1037.140.50.0.0</BIOSVersion>
+            <BoardAssetTag/>
+            <BoardLocationInChassis/>
+            <BoardManufacturer>Acidanthera</BoardManufacturer>
+            <BoardProduct>Mac-AA95B1DDAB278B95</BoardProduct>
+            <BoardSerialNumber>M0000000000000001</BoardSerialNumber>
+            <BoardType>10</BoardType>
+            <BoardVersion>iMac19,1</BoardVersion>
+            <ChassisAssetTag/>
+            <ChassisManufacturer>Acidanthera</ChassisManufacturer>
+            <ChassisSerialNumber>W00000000001</ChassisSerialNumber>
+            <ChassisType>13</ChassisType>
+            <ChassisVersion>Mac-AA95B1DDAB278B95</ChassisVersion>
+            <FirmwareFeatures>dvWP/QAAAAA=</FirmwareFeatures>
+            <FirmwareFeaturesMask>f//f/wAAAAA=</FirmwareFeaturesMask>
+            <MemoryFormFactor>9</MemoryFormFactor>
+            <PlatformFeature>32</PlatformFeature>
+            <ProcessorType>4105</ProcessorType>
+            <SmcVersion>Mi40NkYwMTIAAAAAAAAAAA==</SmcVersion>
+            <SystemFamily>iMac</SystemFamily>
+            <SystemManufacturer>Acidanthera</SystemManufacturer>
+            <SystemProductName>iMac19,1</SystemProductName>
+            <SystemSerialNumber>W00000000001</SystemSerialNumber>
+            <SystemSKUNumber/>
+            <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
+            <SystemVersion>1.0</SystemVersion>
+        </SMBIOS>
         <UpdateDataHub>false</UpdateDataHub>
         <UpdateNVRAM>false</UpdateNVRAM>
         <UpdateSMBIOS>false</UpdateSMBIOS>
@@ -403,7 +445,7 @@
         </Input>
         <Output>
             <TextRenderer>BuiltinGraphics</TextRenderer>
-            <ConsoleMode></ConsoleMode>
+            <ConsoleMode/>
             <Resolution>Max</Resolution>
             <ClearScreenOnModeSwitch>false</ClearScreenOnModeSwitch>
             <DirectGopRendering>false</DirectGopRendering>

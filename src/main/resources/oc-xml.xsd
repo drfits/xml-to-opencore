@@ -14,8 +14,11 @@
             <xs:element name="Generic">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="SpoofVendor" type="xs:boolean"/>
                         <xs:element name="AdviseWindows" type="xs:boolean"/>
+                        <xs:element name="MLB" type="xs:string"/>
+                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="ROM" type="xs:base64Binary"/>
+                        <xs:element name="SpoofVendor" type="xs:boolean"/>
                         <xs:element name="SystemMemoryStatus">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
@@ -25,12 +28,9 @@
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
-                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
                         <xs:element name="SystemProductName" type="xs:string"/>
                         <xs:element name="SystemSerialNumber" type="xs:string"/>
                         <xs:element name="SystemUUID" type="GUID"/>
-                        <xs:element name="MLB" type="xs:string"/>
-                        <xs:element name="ROM" type="xs:base64Binary"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -42,20 +42,20 @@
             <xs:element name="DataHub">
                 <xs:complexType>
                     <xs:sequence>
+                        <xs:element name="ARTFrequency" type="xs:nonNegativeInteger"/>
+                        <xs:element name="BoardProduct" type="xs:string"/>
+                        <xs:element name="BoardRevision" type="xs:base64Binary"/>
+                        <xs:element name="DevicePathsSupported" type="xs:nonNegativeInteger"/>
+                        <xs:element name="FSBFrequency" type="xs:nonNegativeInteger"/>
+                        <xs:element name="InitialTSC" type="xs:nonNegativeInteger"/>
                         <xs:element name="PlatformName" type="xs:string"/>
+                        <xs:element name="SmcBranch" type="xs:base64Binary"/>
+                        <xs:element name="SmcPlatform" type="xs:base64Binary"/>
+                        <xs:element name="SmcRevision" type="xs:base64Binary"/>
+                        <xs:element name="StartupPowerEvents" type="xs:nonNegativeInteger"/>
                         <xs:element name="SystemProductName" type="xs:string"/>
                         <xs:element name="SystemSerialNumber" type="xs:string"/>
                         <xs:element name="SystemUUID" type="GUID"/>
-                        <xs:element name="BoardProduct" type="xs:string"/>
-                        <xs:element name="BoardRevision" type="xs:base64Binary"/>
-                        <xs:element name="StartupPowerEvents" type="xs:nonNegativeInteger"/>
-                        <xs:element name="InitialTSC" type="xs:nonNegativeInteger"/>
-                        <xs:element name="FSBFrequency" type="xs:nonNegativeInteger"/>
-                        <xs:element name="ARTFrequency" type="xs:nonNegativeInteger"/>
-                        <xs:element name="DevicePathsSupported" type="xs:nonNegativeInteger"/>
-                        <xs:element name="SmcRevision" type="xs:base64Binary"/>
-                        <xs:element name="SmcBranch" type="xs:base64Binary"/>
-                        <xs:element name="SmcPlatform" type="xs:base64Binary"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -63,44 +63,44 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="BID" type="xs:string"/>
-                        <xs:element name="ROM" type="xs:base64Binary"/>
-                        <xs:element name="MLB" type="xs:string"/>
                         <xs:element name="FirmwareFeatures" type="xs:base64Binary"/>
                         <xs:element name="FirmwareFeaturesMask" type="xs:base64Binary"/>
+                        <xs:element name="MLB" type="xs:string"/>
+                        <xs:element name="ROM" type="xs:base64Binary"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="SMBIOS">
                 <xs:complexType>
                     <xs:sequence>
+                        <xs:element name="BIOSReleaseDate" type="xs:string"/>
                         <xs:element name="BIOSVendor" type="xs:string"/>
                         <xs:element name="BIOSVersion" type="xs:string"/>
-                        <xs:element name="BIOSReleaseDate" type="xs:string"/>
-                        <xs:element name="SystemManufacturer" type="xs:string"/>
-                        <xs:element name="SystemProductName" type="xs:string"/>
-                        <xs:element name="SystemVersion" type="xs:string"/>
-                        <xs:element name="SystemSerialNumber" type="xs:string"/>
-                        <xs:element name="SystemUUID" type="GUID"/>
-                        <xs:element name="SystemSKUNumber" type="xs:string"/>
-                        <xs:element name="SystemFamily" type="xs:string"/>
+                        <xs:element name="BoardAssetTag" type="xs:string"/>
+                        <xs:element name="BoardLocationInChassis" type="xs:string"/>
                         <xs:element name="BoardManufacturer" type="xs:string"/>
                         <xs:element name="BoardProduct" type="xs:string"/>
-                        <xs:element name="BoardVersion" type="xs:string"/>
                         <xs:element name="BoardSerialNumber" type="xs:string"/>
-                        <xs:element name="BoardAssetTag" type="xs:string"/>
                         <xs:element name="BoardType" type="xs:nonNegativeInteger"/>
-                        <xs:element name="BoardLocationInChassis" type="xs:string"/>
+                        <xs:element name="BoardVersion" type="xs:string"/>
+                        <xs:element name="ChassisAssetTag" type="xs:string"/>
                         <xs:element name="ChassisManufacturer" type="xs:string"/>
+                        <xs:element name="ChassisSerialNumber" type="xs:string"/>
                         <xs:element name="ChassisType" type="xs:nonNegativeInteger"/>
                         <xs:element name="ChassisVersion" type="xs:string"/>
-                        <xs:element name="ChassisSerialNumber" type="xs:string"/>
-                        <xs:element name="ChassisAssetTag" type="xs:string"/>
-                        <xs:element name="PlatformFeature" type="xs:nonNegativeInteger"/>
-                        <xs:element name="SmcVersion" type="xs:base64Binary"/>
                         <xs:element name="FirmwareFeatures" type="xs:base64Binary"/>
                         <xs:element name="FirmwareFeaturesMask" type="xs:base64Binary"/>
-                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
                         <xs:element name="MemoryFormFactor" type="xs:nonNegativeInteger"/>
+                        <xs:element name="PlatformFeature" type="xs:nonNegativeInteger"/>
+                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="SmcVersion" type="xs:base64Binary"/>
+                        <xs:element name="SystemFamily" type="xs:string"/>
+                        <xs:element name="SystemManufacturer" type="xs:string"/>
+                        <xs:element name="SystemProductName" type="xs:string"/>
+                        <xs:element name="SystemSerialNumber" type="xs:string"/>
+                        <xs:element name="SystemSKUNumber" type="xs:string"/>
+                        <xs:element name="SystemUUID" type="GUID"/>
+                        <xs:element name="SystemVersion" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

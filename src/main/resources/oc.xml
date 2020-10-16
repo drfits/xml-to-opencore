@@ -349,15 +349,15 @@
     <PlatformInfo>
         <Automatic>true</Automatic>
         <Generic>
-            <SpoofVendor>false</SpoofVendor>
             <AdviseWindows>false</AdviseWindows>
-            <SystemMemoryStatus>Auto</SystemMemoryStatus>
+            <MLB>M0000000000000001</MLB>
             <ProcessorType>0</ProcessorType>
+            <ROM>ESIzRFVm</ROM>
+            <SpoofVendor>false</SpoofVendor>
+            <SystemMemoryStatus>Auto</SystemMemoryStatus>
             <SystemProductName>iMac19,1</SystemProductName>
             <SystemSerialNumber>W00000000001</SystemSerialNumber>
             <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
-            <MLB>M0000000000000001</MLB>
-            <ROM>ESIzRFVm</ROM>
         </Generic>
         <UpdateDataHub>false</UpdateDataHub>
         <UpdateNVRAM>false</UpdateNVRAM>
@@ -403,7 +403,7 @@
         </Input>
         <Output>
             <TextRenderer>BuiltinGraphics</TextRenderer>
-            <ConsoleMode></ConsoleMode>
+            <ConsoleMode/>
             <Resolution>Max</Resolution>
             <ClearScreenOnModeSwitch>false</ClearScreenOnModeSwitch>
             <DirectGopRendering>false</DirectGopRendering>
