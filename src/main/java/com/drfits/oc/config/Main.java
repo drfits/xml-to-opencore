@@ -11,12 +11,29 @@ import javax.xml.transform.stream.StreamSource;
 public class Main {
 
     public static void main(String[] args) throws TransformerException {
-        Source xslt = new StreamSource(new File(args[0]));
-        Source text = new StreamSource(new File(args[1]));
-        TransformerFactory factory = TransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer(xslt);
+        System.out.println("/***************************************/");
+        System.out.println("/*********    XML2OC Converter    ******/");
+        System.out.println("/*********    OpenCore v.0.6.2    ******/");
+        System.out.println("/***************************************/");
 
-        transformer.transform(text, new StreamResult(new File(args[2])));
+        if (args.length != 3) {
+            System.out.println("Please use this format for transform: java -jar xml2oc-1.0.jar oc.xslt oc.xml config.plist");
+            return;
+        }
+
+        System.out.println();
+        System.out.println("XSLT file: " + args[0]);
+        System.out.println("XML configuration file: " + args[1]);
+        System.out.println();
+
+        final Source xslt = new StreamSource(new File(args[0]));
+        final Source xml = new StreamSource(new File(args[1]));
+        final TransformerFactory factory = TransformerFactory.newInstance();
+        final Transformer transformer = factory.newTransformer(xslt);
+
+        final File cfg = new File(args[2]);
+        transformer.transform(xml, new StreamResult(cfg));
+        System.out.println("OC configuration file " + args[2] + " created, size: " + cfg.length() + " bytes.");
     }
 }
 
