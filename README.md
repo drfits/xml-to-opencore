@@ -17,10 +17,11 @@ configuration structure and types
 :airplane: How to use:
 
 1. install [JRE](https://www.java.com/download/) 
-1. download the repo and open required config folder in terminal (folder structure - "/configs/{opencore version}")
-1. update oc.xml with required properties for configuration and transform it to config.plist with below command:
+1. download the repo and open config folder in terminal. Folder structure contains OpenCore version ("/configs/{opencore version}") therefore use your build.
+1. change oc.xml according to required properties
+1. create config.plist with command below:
 
-$ java -jar xml2oc.jar oc.xslt oc.xml config.plist
+```$ java -jar xml2oc.jar oc.xslt oc.xml config.plist```
 
 1. This is it!
 
