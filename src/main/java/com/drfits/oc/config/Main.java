@@ -17,7 +17,7 @@ public class Main {
         System.out.println("/***************************************/");
 
         if (args.length != 3) {
-            System.out.println("Please use this format for transform: java -jar xml2oc-1.0.jar oc.xslt oc.xml config.plist");
+            System.out.println("Please use this format for transform: java -jar xml2oc.jar oc.xslt oc.xml config.plist");
             return;
         }
 
