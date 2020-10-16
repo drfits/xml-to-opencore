@@ -1,0 +1,1084 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.drfits.com/schema/oc"
+           xmlns="https://www.drfits.com/schema/oc"
+           elementFormDefault="qualified">
+    <xs:simpleType name="GUID">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:group name="PlatformInfo-Automatic-Group">
+        <xs:sequence>
+            <xs:element name="Generic">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AdviseWindows" type="xs:boolean"/>
+                        <xs:element name="MLB" type="xs:string"/>
+                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="ROM" type="xs:base64Binary"/>
+                        <xs:element name="SpoofVendor" type="xs:boolean"/>
+                        <xs:element name="SystemMemoryStatus">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Auto"/>
+                                    <xs:enumeration value="Upgradable"/>
+                                    <xs:enumeration value="Soldered"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="SystemProductName" type="xs:string"/>
+                        <xs:element name="SystemSerialNumber" type="xs:string"/>
+                        <xs:element name="SystemUUID" type="GUID"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:group name="PlatformInfo-Not-Automatic-Group">
+        <xs:sequence>
+            <xs:element name="DataHub">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ARTFrequency" type="xs:nonNegativeInteger"/>
+                        <xs:element name="BoardProduct" type="xs:string"/>
+                        <xs:element name="BoardRevision" type="xs:base64Binary"/>
+                        <xs:element name="DevicePathsSupported" type="xs:nonNegativeInteger"/>
+                        <xs:element name="FSBFrequency" type="xs:nonNegativeInteger"/>
+                        <xs:element name="InitialTSC" type="xs:nonNegativeInteger"/>
+                        <xs:element name="PlatformName" type="xs:string"/>
+                        <xs:element name="SmcBranch" type="xs:base64Binary"/>
+                        <xs:element name="SmcPlatform" type="xs:base64Binary"/>
+                        <xs:element name="SmcRevision" type="xs:base64Binary"/>
+                        <xs:element name="StartupPowerEvents" type="xs:nonNegativeInteger"/>
+                        <xs:element name="SystemProductName" type="xs:string"/>
+                        <xs:element name="SystemSerialNumber" type="xs:string"/>
+                        <xs:element name="SystemUUID" type="GUID"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PlatformNVRAM">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="BID" type="xs:string"/>
+                        <xs:element name="FirmwareFeatures" type="xs:base64Binary"/>
+                        <xs:element name="FirmwareFeaturesMask" type="xs:base64Binary"/>
+                        <xs:element name="MLB" type="xs:string"/>
+                        <xs:element name="ROM" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SMBIOS">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="BIOSReleaseDate" type="xs:string"/>
+                        <xs:element name="BIOSVendor" type="xs:string"/>
+                        <xs:element name="BIOSVersion" type="xs:string"/>
+                        <xs:element name="BoardAssetTag" type="xs:string"/>
+                        <xs:element name="BoardLocationInChassis" type="xs:string"/>
+                        <xs:element name="BoardManufacturer" type="xs:string"/>
+                        <xs:element name="BoardProduct" type="xs:string"/>
+                        <xs:element name="BoardSerialNumber" type="xs:string"/>
+                        <xs:element name="BoardType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="BoardVersion" type="xs:string"/>
+                        <xs:element name="ChassisAssetTag" type="xs:string"/>
+                        <xs:element name="ChassisManufacturer" type="xs:string"/>
+                        <xs:element name="ChassisSerialNumber" type="xs:string"/>
+                        <xs:element name="ChassisType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="ChassisVersion" type="xs:string"/>
+                        <xs:element name="FirmwareFeatures" type="xs:base64Binary"/>
+                        <xs:element name="FirmwareFeaturesMask" type="xs:base64Binary"/>
+                        <xs:element name="MemoryFormFactor" type="xs:nonNegativeInteger"/>
+                        <xs:element name="PlatformFeature" type="xs:nonNegativeInteger"/>
+                        <xs:element name="ProcessorType" type="xs:nonNegativeInteger"/>
+                        <xs:element name="SmcVersion" type="xs:base64Binary"/>
+                        <xs:element name="SystemFamily" type="xs:string"/>
+                        <xs:element name="SystemManufacturer" type="xs:string"/>
+                        <xs:element name="SystemProductName" type="xs:string"/>
+                        <xs:element name="SystemSerialNumber" type="xs:string"/>
+                        <xs:element name="SystemSKUNumber" type="xs:string"/>
+                        <xs:element name="SystemUUID" type="GUID"/>
+                        <xs:element name="SystemVersion" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ACPI">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Patch">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Count" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Find" type="xs:base64Binary"/>
+                                                    <xs:element name="Limit" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Mask" type="xs:base64Binary"/>
+                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
+                                                    <xs:element name="Replace" type="xs:base64Binary"/>
+                                                    <xs:element name="ReplaceMask" type="xs:base64Binary"/>
+                                                    <xs:element name="Skip" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Delete">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="All" type="xs:boolean"/>
+                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
+                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="Comment" type="xs:string"/>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="acpi-add-uniqueAddPath">
+                                    <xs:selector xpath="./*"/>
+                                    <xs:field xpath="@Path"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="Quirks">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="FadtEnableReset" type="xs:boolean"/>
+                                        <xs:element name="NormalizeHeaders" type="xs:boolean"/>
+                                        <xs:element name="RebaseRegions" type="xs:boolean"/>
+                                        <xs:element name="ResetHwSig" type="xs:boolean"/>
+                                        <xs:element name="ResetLogoStatus" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Booter">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MmioWhitelist">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Address" type="xs:nonNegativeInteger" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Quirks">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AvoidRuntimeDefrag" type="xs:boolean"/>
+                                        <xs:element name="DevirtualiseMmio" type="xs:boolean"/>
+                                        <xs:element name="DisableSingleUser" type="xs:boolean"/>
+                                        <xs:element name="DisableVariableWrite" type="xs:boolean"/>
+                                        <xs:element name="DiscardHibernateMap" type="xs:boolean"/>
+                                        <xs:element name="EnableSafeModeSlide" type="xs:boolean"/>
+                                        <xs:element name="EnableWriteUnprotector" type="xs:boolean"/>
+                                        <xs:element name="ForceExitBootServices" type="xs:boolean"/>
+                                        <xs:element name="ProtectMemoryRegions" type="xs:boolean"/>
+                                        <xs:element name="ProtectSecureBoot" type="xs:boolean"/>
+                                        <xs:element name="ProtectUefiServices" type="xs:boolean"/>
+                                        <xs:element name="ProvideCustomSlide" type="xs:boolean"/>
+                                        <xs:element name="ProvideMaxSlide">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:nonNegativeInteger">
+                                                    <xs:minInclusive value="0"/>
+                                                    <xs:maxInclusive value="254"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="RebuildAppleMemoryMap" type="xs:boolean"/>
+                                        <xs:element name="SetupVirtualMap" type="xs:boolean"/>
+                                        <xs:element name="SignalAppleOS" type="xs:boolean"/>
+                                        <xs:element name="SyncRuntimePermissions" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DeviceProperties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="device" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="key" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                            <xs:unique name="device-properties-add-unique-devicePath">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@path"/>
+                                            </xs:unique>
+                                            <xs:unique name="device-properties-add-unique-prop-type">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@key"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Delete">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="device" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="key" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                            <xs:unique name="device-properties-delete-unique-devicePath">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@path"/>
+                                            </xs:unique>
+                                            <xs:unique name="device-properties-delete-unique-prop-type">
+                                                <xs:selector xpath="./*"/>
+                                                <xs:field xpath="@key"/>
+                                            </xs:unique>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Kernel">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arch">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Any"/>
+                                                                <xs:enumeration value="i386"/>
+                                                                <xs:enumeration value="x86_64"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="BundlePath" type="xs:string"/>
+                                                    <xs:element name="ExecutablePath" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="PlistPath" type="xs:string"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Block">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arch">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Any"/>
+                                                                <xs:enumeration value="i386"/>
+                                                                <xs:enumeration value="x86_64"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Emulate">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Cpuid1Data" type="xs:base64Binary"/>
+                                        <xs:element name="Cpuid1Mask" type="xs:base64Binary"/>
+                                        <xs:element name="DummyPowerManagement" type="xs:boolean"/>
+                                        <xs:element name="MaxKernel" type="xs:string"/>
+                                        <xs:element name="MinKernel" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Force">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arch">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Any"/>
+                                                                <xs:enumeration value="i386"/>
+                                                                <xs:enumeration value="x86_64"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="BundlePath" type="xs:string"/>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="ExecutablePath" type="xs:string"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="PlistPath" type="xs:string"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Patch">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arch">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Any"/>
+                                                                <xs:enumeration value="i386"/>
+                                                                <xs:enumeration value="x86_64"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Base" type="xs:string"/>
+                                                    <xs:element name="Count" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Find" type="xs:base64Binary"/>
+                                                    <xs:element name="Identifier" type="xs:string"/>
+                                                    <xs:element name="Limit" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Mask" type="xs:base64Binary"/>
+                                                    <xs:element name="MaxKernel" type="xs:string"/>
+                                                    <xs:element name="MinKernel" type="xs:string"/>
+                                                    <xs:element name="Replace" type="xs:base64Binary"/>
+                                                    <xs:element name="ReplaceMask" type="xs:base64Binary"/>
+                                                    <xs:element name="Skip" type="xs:nonNegativeInteger"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Quirks">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AppleCpuPmCfgLock" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmCfgLock" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmExtraMsrs" type="xs:boolean"/>
+                                        <xs:element name="AppleXcpmForceBoost" type="xs:boolean"/>
+                                        <xs:element name="CustomSMBIOSGuid" type="xs:boolean"/>
+                                        <xs:element name="DisableIoMapper" type="xs:boolean"/>
+                                        <xs:element name="DisableLinkeditJettison" type="xs:boolean"/>
+                                        <xs:element name="DisableRtcChecksum" type="xs:boolean"/>
+                                        <xs:element name="ExtendBTFeatureFlags" type="xs:boolean"/>
+                                        <xs:element name="ExternalDiskIcons" type="xs:boolean"/>
+                                        <xs:element name="IncreasePciBarSize" type="xs:boolean"/>
+                                        <xs:element name="LapicKernelPanic" type="xs:boolean"/>
+                                        <xs:element name="LegacyCommpage" type="xs:boolean"/>
+                                        <xs:element name="PanicNoKextDump" type="xs:boolean"/>
+                                        <xs:element name="PowerTimeoutKernelPanic" type="xs:boolean"/>
+                                        <xs:element name="ThirdPartyDrives" type="xs:boolean"/>
+                                        <xs:element name="XhciPortLimit" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Scheme">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="FuzzyMatch" type="xs:boolean"/>
+                                        <xs:element name="KernelArch">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Any"/>
+                                                    <xs:enumeration value="i386"/>
+                                                    <xs:enumeration value="i386-user32"/>
+                                                    <xs:enumeration value="x86_64"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="KernelCache">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Auto"/>
+                                                    <xs:enumeration value="Cacheless"/>
+                                                    <xs:enumeration value="Mkext"/>
+                                                    <xs:enumeration value="Prelinked"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Misc">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Boot">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ConsoleAttributes" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="HibernateMode">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="None"/>
+                                                    <xs:enumeration value="Auto"/>
+                                                    <xs:enumeration value="RTC"/>
+                                                    <xs:enumeration value="NVRAM"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="HideAuxiliary" type="xs:boolean"/>
+                                        <xs:element name="PickerAttributes" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PickerAudioAssist" type="xs:boolean"/>
+                                        <xs:element name="PollAppleHotKeys" type="xs:boolean"/>
+                                        <xs:element name="ShowPicker" type="xs:boolean"/>
+                                        <xs:element name="TakeoffDelay" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="Timeout" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PickerMode">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Builtin"/>
+                                                    <xs:enumeration value="External"/>
+                                                    <xs:enumeration value="Apple"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BlessOverride">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="path" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Debug">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AppleDebug" type="xs:boolean"/>
+                                        <xs:element name="ApplePanic" type="xs:boolean"/>
+                                        <xs:element name="DisableWatchDog" type="xs:boolean"/>
+                                        <xs:element name="DisplayDelay" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="DisplayLevel" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="SerialInit" type="xs:boolean"/>
+                                        <xs:element name="SysReport" type="xs:boolean"/>
+                                        <xs:element name="Target" type="xs:nonNegativeInteger"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Entries">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arguments" type="xs:string"/>
+                                                    <xs:element name="Auxiliary" type="xs:boolean"/>
+                                                    <xs:element name="Comment" type="xs:string"/>
+                                                    <xs:element name="Path">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Name" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Security">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AllowNvramReset" type="xs:boolean"/>
+                                        <xs:element name="AllowSetDefault" type="xs:boolean"/>
+                                        <xs:element name="ApECID" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="AuthRestart" type="xs:boolean"/>
+                                        <xs:element name="BootProtect">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="None"/>
+                                                    <xs:enumeration value="Bootstrap"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="DmgLoading">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Disabled"/>
+                                                    <xs:enumeration value="Signed"/>
+                                                    <xs:enumeration value="Any"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="EnablePassword" type="xs:boolean"/>
+                                        <xs:element name="ExposeSensitiveData" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="HaltLevel" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="PasswordHash" type="xs:base64Binary"/>
+                                        <xs:element name="PasswordSalt" type="xs:base64Binary"/>
+                                        <xs:element name="Vault">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Optional"/>
+                                                    <xs:enumeration value="Basic"/>
+                                                    <xs:enumeration value="Secure"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="ScanPolicy" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="SecureBootModel">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Default"/>
+                                                    <xs:enumeration value="Disabled"/>
+                                                    <xs:enumeration value="j137"/>
+                                                    <xs:enumeration value="j680"/>
+                                                    <xs:enumeration value="j132"/>
+                                                    <xs:enumeration value="j174"/>
+                                                    <xs:enumeration value="j140k"/>
+                                                    <xs:enumeration value="j780"/>
+                                                    <xs:enumeration value="j213"/>
+                                                    <xs:enumeration value="j140a"/>
+                                                    <xs:enumeration value="j152f"/>
+                                                    <xs:enumeration value="j160"/>
+                                                    <xs:enumeration value="j230k"/>
+                                                    <xs:enumeration value="j214k"/>
+                                                    <xs:enumeration value="j223"/>
+                                                    <xs:enumeration value="j215"/>
+                                                    <xs:enumeration value="j185"/>
+                                                    <xs:enumeration value="j185f"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Tools">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Arguments" type="xs:string"/>
+                                                    <xs:element name="Auxiliary" type="xs:boolean"/>
+                                                    <xs:element name="Comment" type="xs:string"/>
+                                                    <xs:element name="Path">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Name" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="NVRAM">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="key" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                    <xs:attribute name="type" use="required">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:enumeration value="data"/>
+                                                                                <xs:enumeration value="string"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="value" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="GUID">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Delete">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="value" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="GUID">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="LegacyEnable" type="xs:boolean"/>
+                            <xs:element name="LegacyOverwrite" type="xs:boolean"/>
+                            <xs:element name="LegacySchema">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="value" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="GUID">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="WriteFlash" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PlatformInfo">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Platform information is comprised of several identification fields generated or filled manually to be compatible with macOS
+                            services. The base part of the configuration may be obtained from AppleModels, which itself generates a set of interfaces based on a
+                            database in YAML format. These fields are written to three select destinations:
+                            <ul>
+                                <li>SMBIOS</li>
+                                <li>Data Hub</li>
+                                <li>NVRAM</li>
+                            </ul>
+                            Most of the fields specify the overrides in SMBIOS, and their field names conform to EDK2 SmBios.h header file. However, several
+                            important fields reside in Data Hub and NVRAM. Some of the values can be found in more than one field and/or destination, so there
+                            are two ways to control their update process: manual, where all the values are specified (the default), and semi-automatic, where
+                            (Automatic) only select values are specified, and later used for system configuration.
+                            <br/>
+                            To inspect SMBIOS contents dmidecode utility can be used. Version with macOS specific enhancements can be downloaded from
+                            Acidanthera/dmidecode.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Automatic" type="xs:boolean">
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        Generate PlatformInfo based on Generic section instead of using values from DataHub, NVRAM, and SMBIOS sections.
+                                        <br/>
+                                        Enabling this option is useful when Generic section is flexible enough:
+                                        <ul>
+                                            <li>When enabled SMBIOS, DataHub, and PlatformNVRAM data is unused.</li>
+                                            <li>When disabled Generic section is unused.</li>
+                                        </ul>
+                                        <b style="color:orange;">Warning:</b>
+                                        It is strongly discouraged set this option to false when intending to update platform information. The only reason to do
+                                        that is when doing minor correction of the SMBIOS present and alike. In all other cases not using Automatic may lead to
+                                        hard to debug errors.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice>
+                                <xs:group ref="PlatformInfo-Automatic-Group"/>
+                                <xs:group ref="PlatformInfo-Not-Automatic-Group"/>
+                            </xs:choice>
+                            <xs:element name="UpdateDataHub" type="xs:boolean"/>
+                            <xs:element name="UpdateNVRAM" type="xs:boolean"/>
+                            <xs:element name="UpdateSMBIOS" type="xs:boolean"/>
+                            <xs:element name="UpdateSMBIOSMode">
+                                <xs:annotation>
+                                    <xs:documentation>Update SMBIOS fields approach</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="TryOverwrite">
+                                            <xs:annotation>
+                                                <xs:documentation>Overwrite if new size is &lt;= than the page-aligned original and there are no issues with
+                                                    legacy region unlock. Create otherwise. Has issues with some firmwares.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="Create">
+                                            <xs:annotation>
+                                                <xs:documentation>Replace the tables with newly allocated EfiReservedMemoryType at AllocateMaxAddress without
+                                                    any fallbacks.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="Overwrite">
+                                            <xs:annotation>
+                                                <xs:documentation>Overwrite existing gEfiSmbiosTableGuid and gEfiSmbiosTable3Guid data if it fits new size.
+                                                    Abort with unspecified state otherwise.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="Custom">
+                                            <xs:annotation>
+                                                <xs:documentation>WriteSMBIOStables(gEfiSmbios(3)TableGuid)togOcCustomSmbios(3)TableGuidtoworkaround firmwares
+                                                    overwriting SMBIOS contents at ExitBootServices. Otherwise equivalent to Create. Requires patching
+                                                    AppleSmbios.kext and AppleACPIPlatform.kext to read from another GUID: "EB9D2D31" - "EB9D2D35" (in ASCII),
+                                                    done automatically by CustomSMBIOSGuid quirk.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="UEFI">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="APFS">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="EnableJumpstart" type="xs:boolean"/>
+                                        <xs:element name="GlobalConnect" type="xs:boolean"/>
+                                        <xs:element name="HideVerbose" type="xs:boolean"/>
+                                        <xs:element name="JumpstartHotPlug" type="xs:boolean"/>
+                                        <xs:element name="MinDate" type="xs:integer"/>
+                                        <xs:element name="MinVersion" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Audio">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AudioCodec" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="AudioDevice" type="xs:string"/>
+                                        <xs:element name="AudioOut" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="AudioSupport" type="xs:boolean"/>
+                                        <xs:element name="MinimumVolume">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:nonNegativeInteger">
+                                                    <xs:minInclusive value="0"/>
+                                                    <xs:maxInclusive value="100"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="PlayChime" type="xs:boolean"/>
+                                        <xs:element name="VolumeAmplifier">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:nonNegativeInteger">
+                                                    <xs:minInclusive value="0"/>
+                                                    <xs:maxInclusive value="1000"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ConnectDrivers" type="xs:boolean"/>
+                            <xs:element name="Drivers">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="driver" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="UEFI-Drivers-uniquePath">
+                                    <xs:selector xpath="./*"/>
+                                    <xs:field xpath="@name"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="Input">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="KeyFiltering" type="xs:boolean"/>
+                                        <xs:element name="KeyForgetThreshold" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="KeyMergeThreshold" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="KeySupport" type="xs:boolean"/>
+                                        <xs:element name="KeySupportMode">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Auto"/>
+                                                    <xs:enumeration value="V1"/>
+                                                    <xs:enumeration value="V2"/>
+                                                    <xs:enumeration value="AMI"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="KeySwap" type="xs:boolean"/>
+                                        <xs:element name="PointerSupport" type="xs:boolean"/>
+                                        <xs:element name="PointerSupportMode" type="xs:string"/>
+                                        <xs:element name="TimerResolution" type="xs:nonNegativeInteger"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Output">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="TextRenderer">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="BuiltinGraphics"/>
+                                                    <xs:enumeration value="BuiltinText"/>
+                                                    <xs:enumeration value="SystemGraphics"/>
+                                                    <xs:enumeration value="SystemText"/>
+                                                    <xs:enumeration value="SystemGeneric"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="ConsoleMode" type="xs:string"/>
+                                        <xs:element name="Resolution" type="xs:string"/>
+                                        <xs:element name="ClearScreenOnModeSwitch" type="xs:boolean"/>
+                                        <xs:element name="DirectGopRendering" type="xs:boolean"/>
+                                        <xs:element name="IgnoreTextInGraphics" type="xs:boolean"/>
+                                        <xs:element name="ReplaceTabWithSpace" type="xs:boolean"/>
+                                        <xs:element name="ProvideConsoleGop" type="xs:boolean"/>
+                                        <xs:element name="ReconnectOnResChange" type="xs:boolean"/>
+                                        <xs:element name="SanitiseClearScreen" type="xs:boolean"/>
+                                        <xs:element name="UgaPassThrough" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ProtocolOverrides">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AppleAudio" type="xs:boolean"/>
+                                        <xs:element name="AppleBootPolicy" type="xs:boolean"/>
+                                        <xs:element name="AppleDebugLog" type="xs:boolean"/>
+                                        <xs:element name="AppleEvent" type="xs:boolean"/>
+                                        <xs:element name="AppleFramebufferInfo" type="xs:boolean"/>
+                                        <xs:element name="AppleImageConversion" type="xs:boolean"/>
+                                        <xs:element name="AppleImg4Verification" type="xs:boolean"/>
+                                        <xs:element name="AppleKeyMap" type="xs:boolean"/>
+                                        <xs:element name="AppleRtcRam" type="xs:boolean"/>
+                                        <xs:element name="AppleSecureBoot" type="xs:boolean"/>
+                                        <xs:element name="AppleSmcIo" type="xs:boolean"/>
+                                        <xs:element name="AppleUserInterfaceTheme" type="xs:boolean"/>
+                                        <xs:element name="DataHub" type="xs:boolean"/>
+                                        <xs:element name="DeviceProperties" type="xs:boolean"/>
+                                        <xs:element name="FirmwareVolume" type="xs:boolean"/>
+                                        <xs:element name="HashServices" type="xs:boolean"/>
+                                        <xs:element name="OSInfo" type="xs:boolean"/>
+                                        <xs:element name="UnicodeCollation" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Quirks">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DeduplicateBootOrder" type="xs:boolean"/>
+                                        <xs:element name="ExitBootServicesDelay" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="IgnoreInvalidFlexRatio" type="xs:boolean"/>
+                                        <xs:element name="ReleaseUsbOwnership" type="xs:boolean"/>
+                                        <xs:element name="RequestBootVarRouting" type="xs:boolean"/>
+                                        <xs:element name="TscSyncTimeout" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="UnblockFsConnect" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ReservedMemory">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Address" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Size" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="Type">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Reserved"/>
+                                                                <xs:enumeration value="LoaderCode"/>
+                                                                <xs:enumeration value="LoaderData"/>
+                                                                <xs:enumeration value="BootServiceCode"/>
+                                                                <xs:enumeration value="BootServiceData"/>
+                                                                <xs:enumeration value="RuntimeCode"/>
+                                                                <xs:enumeration value="RuntimeData"/>
+                                                                <xs:enumeration value="Available"/>
+                                                                <xs:enumeration value="Persistent"/>
+                                                                <xs:enumeration value="UnusableMemory"/>
+                                                                <xs:enumeration value="ACPIReclaimMemory"/>
+                                                                <xs:enumeration value="ACPIMemoryNVS"/>
+                                                                <xs:enumeration value="MemoryMappedIO"/>
+                                                                <xs:enumeration value="MemoryMappedIOPortSpace"/>
+                                                                <xs:enumeration value="PalCode"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

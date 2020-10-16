@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<root xmlns="https://www.drfits.com/schema/oc"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.drfits.com/schema/oc oc-xml.xsd">
+    <ACPI>
+        <Patch>
+            <dict Enabled="false" Comment="_Q11 to XQ11">
+                <Count>1</Count>
+                <Find>X1ExMQ==</Find>
+                <Limit>0</Limit>
+                <Mask/>
+                <OemTableId/>
+                <Replace>WFExMQ==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+                <TableLength>0</TableLength>
+                <TableSignature/>
+            </dict>
+            <dict Enabled="false" Comment="_Q12 to XQ12">
+                <Count>1</Count>
+                <Find>X1ExMg==</Find>
+                <Limit>0</Limit>
+                <Mask/>
+                <OemTableId/>
+                <Replace>WFExMg==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+                <TableLength>0</TableLength>
+                <TableSignature/>
+            </dict>
+        </Patch>
+        <Delete>
+            <dict Enabled="false" Comment="Delete CpuPm">
+                <All>false</All>
+                <OemTableId>Q3B1UG0AAAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+            <dict Enabled="false" Comment="Delete Cpu0Ist">
+                <All>false</All>
+                <OemTableId>Q3B1MElzdAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+        </Delete>
+        <Add>
+            <dict Enabled="false" Comment="Custom DSDT" Path="DSDT.aml"/>
+            <dict Enabled="false" Comment="Custom SSDT" Path="SSDT.aml"/>
+        </Add>
+        <Quirks>
+            <FadtEnableReset>false</FadtEnableReset>
+            <NormalizeHeaders>false</NormalizeHeaders>
+            <RebaseRegions>false</RebaseRegions>
+            <ResetHwSig>false</ResetHwSig>
+            <ResetLogoStatus>false</ResetLogoStatus>
+        </Quirks>
+    </ACPI>
+    <Booter>
+        <MmioWhitelist>
+            <dict Enabled="false"
+                  Comment="Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)"
+                  Address="4275159040"/>
+            <dict Enabled="false"
+                  Comment="Generic: PCI root is a 0x1000 page memory region used by some firmwares"
+                  Address="4278190080"/>
+        </MmioWhitelist>
+        <Quirks>
+            <AvoidRuntimeDefrag>false</AvoidRuntimeDefrag>
+            <DevirtualiseMmio>false</DevirtualiseMmio>
+            <DisableSingleUser>false</DisableSingleUser>
+            <DisableVariableWrite>false</DisableVariableWrite>
+            <DiscardHibernateMap>false</DiscardHibernateMap>
+            <EnableSafeModeSlide>false</EnableSafeModeSlide>
+            <EnableWriteUnprotector>false</EnableWriteUnprotector>
+            <ForceExitBootServices>false</ForceExitBootServices>
+            <ProtectMemoryRegions>false</ProtectMemoryRegions>
+            <ProtectSecureBoot>false</ProtectSecureBoot>
+            <ProtectUefiServices>false</ProtectUefiServices>
+            <ProvideCustomSlide>false</ProvideCustomSlide>
+            <ProvideMaxSlide>0</ProvideMaxSlide>
+            <RebuildAppleMemoryMap>false</RebuildAppleMemoryMap>
+            <SetupVirtualMap>false</SetupVirtualMap>
+            <SignalAppleOS>false</SignalAppleOS>
+            <SyncRuntimePermissions>false</SyncRuntimePermissions>
+        </Quirks>
+    </Booter>
+    <DeviceProperties>
+        <Add>
+            <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
+                <prop key="built-in">AQ==</prop>
+            </device>
+            <device path="PciRoot(0x0)/Pci(0x2,0x0)">
+                <prop key="AAPL,ig-platform-id">AwASWQ==</prop>
+            </device>
+        </Add>
+        <Delete/>
+    </DeviceProperties>
+    <Kernel>
+        <Add>
+            <dict Enabled="true" Comment="Patch engine">
+                <Arch>x86_64</Arch>
+                <BundlePath>Lilu.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/Lilu</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="true" Comment="SMC emulator">
+                <Arch>x86_64</Arch>
+                <BundlePath>VirtualSMC.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/VirtualSMC</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="false" Comment="Video patches">
+                <Arch>x86_64</Arch>
+                <BundlePath>WhateverGreen.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/WhateverGreen</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="false" Comment="Audio patches">
+                <Arch>x86_64</Arch>
+                <BundlePath>AppleALC.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/AppleALC</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="false" Comment="Intel Internet LAN">
+                <Arch>x86_64</Arch>
+                <BundlePath>IntelMausi.kext</BundlePath>
+                <ExecutablePath>Contents/MacOS/IntelMausi</ExecutablePath>
+                <MaxKernel/>
+                <MinKernel>12.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="false" Comment="XHC ports configuration">
+                <Arch>x86_64</Arch>
+                <BundlePath>Legacy_USB3.kext</BundlePath>
+                <ExecutablePath/>
+                <MaxKernel/>
+                <MinKernel>15.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+            <dict Enabled="false" Comment="AppleMCEReporter disabler">
+                <Arch>x86_64</Arch>
+                <BundlePath>AppleMCEReporterDisabler.kext</BundlePath>
+                <ExecutablePath/>
+                <MaxKernel/>
+                <MinKernel>19.0.0</MinKernel>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+        </Add>
+        <Block>
+            <dict Enabled="false" Comment="Disable AppleTyMCEDriver">
+                <Arch>Any</Arch>
+                <Identifier>com.apple.driver.AppleTyMCEDriver</Identifier>
+                <MaxKernel/>
+                <MinKernel/>
+            </dict>
+        </Block>
+        <Emulate>
+            <Cpuid1Data/>
+            <Cpuid1Mask/>
+            <DummyPowerManagement>false</DummyPowerManagement>
+            <MaxKernel/>
+            <MinKernel/>
+        </Emulate>
+        <Force>
+            <dict Enabled="false" Comment="">
+                <Arch>Any</Arch>
+                <BundlePath>System/Library/Extensions/IONetworkingFamily.kext</BundlePath>
+                <Identifier>com.apple.iokit.IONetworkingFamily</Identifier>
+                <ExecutablePath>Contents/MacOS/IONetworkingFamily</ExecutablePath>
+                <MaxKernel>13.99.99</MaxKernel>
+                <MinKernel/>
+                <PlistPath>Contents/Info.plist</PlistPath>
+            </dict>
+        </Force>
+        <Patch>
+            <dict Enabled="false" Comment="Disable RTC wake scheduling">
+                <Arch>Any</Arch>
+                <Base>__ZN8AppleRTC18setupDateTimeAlarmEPK11RTCDateTime</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>com.apple.driver.AppleRTC</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel>19.0.0</MinKernel>
+                <Replace>ww==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+        </Patch>
+        <Quirks>
+            <AppleCpuPmCfgLock>false</AppleCpuPmCfgLock>
+            <AppleXcpmCfgLock>false</AppleXcpmCfgLock>
+            <AppleXcpmExtraMsrs>false</AppleXcpmExtraMsrs>
+            <AppleXcpmForceBoost>false</AppleXcpmForceBoost>
+            <CustomSMBIOSGuid>false</CustomSMBIOSGuid>
+            <DisableIoMapper>false</DisableIoMapper>
+            <DisableLinkeditJettison>true</DisableLinkeditJettison>
+            <DisableRtcChecksum>false</DisableRtcChecksum>
+            <ExtendBTFeatureFlags>false</ExtendBTFeatureFlags>
+            <ExternalDiskIcons>false</ExternalDiskIcons>
+            <IncreasePciBarSize>false</IncreasePciBarSize>
+            <LapicKernelPanic>false</LapicKernelPanic>
+            <LegacyCommpage>false</LegacyCommpage>
+            <PanicNoKextDump>false</PanicNoKextDump>
+            <PowerTimeoutKernelPanic>false</PowerTimeoutKernelPanic>
+            <ThirdPartyDrives>false</ThirdPartyDrives>
+            <XhciPortLimit>false</XhciPortLimit>
+        </Quirks>
+        <Scheme>
+            <FuzzyMatch>true</FuzzyMatch>
+            <KernelArch>x86_64</KernelArch>
+            <KernelCache>Auto</KernelCache>
+        </Scheme>
+    </Kernel>
+    <Misc>
+        <Boot>
+            <ConsoleAttributes>0</ConsoleAttributes>
+            <HibernateMode>None</HibernateMode>
+            <HideAuxiliary>false</HideAuxiliary>
+            <PickerAttributes>1</PickerAttributes>
+            <PickerAudioAssist>false</PickerAudioAssist>
+            <PollAppleHotKeys>false</PollAppleHotKeys>
+            <ShowPicker>true</ShowPicker>
+            <TakeoffDelay>0</TakeoffDelay>
+            <Timeout>5</Timeout>
+            <PickerMode>Builtin</PickerMode>
+        </Boot>
+        <BlessOverride/>
+        <Debug>
+            <AppleDebug>false</AppleDebug>
+            <ApplePanic>false</ApplePanic>
+            <DisableWatchDog>false</DisableWatchDog>
+            <DisplayDelay>0</DisplayDelay>
+            <DisplayLevel>2147483650</DisplayLevel>
+            <SerialInit>false</SerialInit>
+            <SysReport>false</SysReport>
+            <Target>3</Target>
+        </Debug>
+        <Entries>
+            <entry Enabled="false" Name="CustomOS">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Not signed for security reasons</Comment>
+                <Path>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</Path>
+            </entry>
+        </Entries>
+        <Security>
+            <AllowNvramReset>false</AllowNvramReset>
+            <AllowSetDefault>false</AllowSetDefault>
+            <ApECID>0</ApECID>
+            <AuthRestart>false</AuthRestart>
+            <BootProtect>Bootstrap</BootProtect>
+            <DmgLoading>Signed</DmgLoading>
+            <EnablePassword>false</EnablePassword>
+            <ExposeSensitiveData>6</ExposeSensitiveData>
+            <HaltLevel>2147483648</HaltLevel>
+            <PasswordHash/>
+            <PasswordSalt/>
+            <Vault>Secure</Vault>
+            <ScanPolicy>17760515</ScanPolicy>
+            <SecureBootModel>Default</SecureBootModel>
+        </Security>
+        <Tools>
+            <entry Enabled="false" Name="UEFI Shell">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Not signed for security reasons</Comment>
+                <Path>OpenShell.efi</Path>
+            </entry>
+            <entry Enabled="false" Name="memcheck">
+                <Arguments/>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Memory testing utility</Comment>
+                <Path>memcheck/memcheck.efi</Path>
+            </entry>
+            <entry Enabled="false" Name="Shutdown">
+                <Arguments>Shutdown</Arguments>
+                <Auxiliary>false</Auxiliary>
+                <Comment>Perform shutdown</Comment>
+                <Path>ResetSystem.efi</Path>
+            </entry>
+        </Tools>
+    </Misc>
+    <NVRAM>
+        <Add>
+            <key value="4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14">
+                <prop key="DefaultBackgroundColor" type="data">AAAAAA==</prop>
+                <prop key="UIScale" type="data">AQ==</prop>
+            </key>
+            <key value="4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102">
+                <prop key="rtc-blacklist" type="data"/>
+            </key>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop key="SystemAudioVolume" type="data">Rg==</prop>
+                <prop key="boot-args" type="string">-v keepsyms=1</prop>
+                <prop key="run-efi-updater" type="string">No</prop>
+                <prop key="csr-active-config" type="data">AAAAAA==</prop>
+                <prop key="prev-lang:kbd" type="data">cnUtUlU6MjUy</prop>
+            </key>
+        </Add>
+        <Delete>
+            <key value="4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14">
+                <prop>UIScale</prop>
+                <prop>DefaultBackgroundColor</prop>
+            </key>
+            <key value="4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102">
+                <prop>rtc-blacklist</prop>
+            </key>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop>boot-args</prop>
+            </key>
+        </Delete>
+        <LegacyEnable>false</LegacyEnable>
+        <LegacyOverwrite>false</LegacyOverwrite>
+        <LegacySchema>
+            <key value="7C436110-AB2A-4BBB-A880-FE41995C9F82">
+                <prop>EFILoginHiDPI</prop>
+                <prop>EFIBluetoothDelay</prop>
+                <prop>LocationServicesEnabled</prop>
+                <prop>SystemAudioVolume</prop>
+                <prop>SystemAudioVolumeDB</prop>
+                <prop>SystemAudioVolumeSaved</prop>
+                <prop>bluetoothActiveControllerInfo</prop>
+                <prop>bluetoothInternalControllerInfo</prop>
+                <prop>flagstate</prop>
+                <prop>fmm-computer-name</prop>
+                <prop>nvda_drv</prop>
+                <prop>prev-lang:kbd</prop>
+            </key>
+            <key value="8BE4DF61-93CA-11D2-AA0D-00E098032B8C">
+                <prop>Boot0080</prop>
+                <prop>Boot0081</prop>
+                <prop>Boot0082</prop>
+                <prop>BootNext</prop>
+                <prop>BootOrder</prop>
+            </key>
+        </LegacySchema>
+        <WriteFlash>true</WriteFlash>
+    </NVRAM>
+    <PlatformInfo>
+        <Automatic>true</Automatic>
+        <Generic>
+            <AdviseWindows>false</AdviseWindows>
+            <MLB>M0000000000000001</MLB>
+            <ProcessorType>0</ProcessorType>
+            <ROM>ESIzRFVm</ROM>
+            <SpoofVendor>false</SpoofVendor>
+            <SystemMemoryStatus>Auto</SystemMemoryStatus>
+            <SystemProductName>iMac19,1</SystemProductName>
+            <SystemSerialNumber>W00000000001</SystemSerialNumber>
+            <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
+        </Generic>
+        <UpdateDataHub>false</UpdateDataHub>
+        <UpdateNVRAM>false</UpdateNVRAM>
+        <UpdateSMBIOS>false</UpdateSMBIOS>
+        <UpdateSMBIOSMode>Create</UpdateSMBIOSMode>
+    </PlatformInfo>
+    <UEFI>
+        <APFS>
+            <EnableJumpstart>false</EnableJumpstart>
+            <GlobalConnect>false</GlobalConnect>
+            <HideVerbose>false</HideVerbose>
+            <JumpstartHotPlug>false</JumpstartHotPlug>
+            <MinDate>0</MinDate>
+            <MinVersion>0</MinVersion>
+        </APFS>
+        <Audio>
+            <AudioCodec>0</AudioCodec>
+            <AudioDevice>PciRoot(0x0)/Pci(0x1b,0x0)</AudioDevice>
+            <AudioOut>0</AudioOut>
+            <AudioSupport>false</AudioSupport>
+            <MinimumVolume>20</MinimumVolume>
+            <PlayChime>false</PlayChime>
+            <VolumeAmplifier>0</VolumeAmplifier>
+        </Audio>
+        <ConnectDrivers>false</ConnectDrivers>
+        <Drivers>
+            <driver name="HfsPlus.efi"/>
+            <driver name="OpenRuntime.efi"/>
+            <driver name="#OpenCanopy.efi"/>
+            <driver name="#AudioDxe.efi"/>
+            <driver name="#OpenUsbKbDxe.efi"/>
+        </Drivers>
+        <Input>
+            <KeyFiltering>false</KeyFiltering>
+            <KeyForgetThreshold>5</KeyForgetThreshold>
+            <KeyMergeThreshold>2</KeyMergeThreshold>
+            <KeySupport>true</KeySupport>
+            <KeySupportMode>Auto</KeySupportMode>
+            <KeySwap>false</KeySwap>
+            <PointerSupport>false</PointerSupport>
+            <PointerSupportMode>ASUS</PointerSupportMode>
+            <TimerResolution>5000</TimerResolution>
+        </Input>
+        <Output>
+            <TextRenderer>BuiltinGraphics</TextRenderer>
+            <ConsoleMode/>
+            <Resolution>Max</Resolution>
+            <ClearScreenOnModeSwitch>false</ClearScreenOnModeSwitch>
+            <DirectGopRendering>false</DirectGopRendering>
+            <IgnoreTextInGraphics>false</IgnoreTextInGraphics>
+            <ReplaceTabWithSpace>false</ReplaceTabWithSpace>
+            <ProvideConsoleGop>true</ProvideConsoleGop>
+            <ReconnectOnResChange>false</ReconnectOnResChange>
+            <SanitiseClearScreen>false</SanitiseClearScreen>
+            <UgaPassThrough>false</UgaPassThrough>
+        </Output>
+        <ProtocolOverrides>
+            <AppleAudio>false</AppleAudio>
+            <AppleBootPolicy>false</AppleBootPolicy>
+            <AppleDebugLog>false</AppleDebugLog>
+            <AppleEvent>false</AppleEvent>
+            <AppleFramebufferInfo>false</AppleFramebufferInfo>
+            <AppleImageConversion>false</AppleImageConversion>
+            <AppleImg4Verification>false</AppleImg4Verification>
+            <AppleKeyMap>false</AppleKeyMap>
+            <AppleRtcRam>false</AppleRtcRam>
+            <AppleSecureBoot>false</AppleSecureBoot>
+            <AppleSmcIo>false</AppleSmcIo>
+            <AppleUserInterfaceTheme>false</AppleUserInterfaceTheme>
+            <DataHub>false</DataHub>
+            <DeviceProperties>false</DeviceProperties>
+            <FirmwareVolume>false</FirmwareVolume>
+            <HashServices>false</HashServices>
+            <OSInfo>false</OSInfo>
+            <UnicodeCollation>false</UnicodeCollation>
+        </ProtocolOverrides>
+        <Quirks>
+            <DeduplicateBootOrder>false</DeduplicateBootOrder>
+            <ExitBootServicesDelay>0</ExitBootServicesDelay>
+            <IgnoreInvalidFlexRatio>false</IgnoreInvalidFlexRatio>
+            <ReleaseUsbOwnership>false</ReleaseUsbOwnership>
+            <RequestBootVarRouting>false</RequestBootVarRouting>
+            <TscSyncTimeout>0</TscSyncTimeout>
+            <UnblockFsConnect>false</UnblockFsConnect>
+        </Quirks>
+        <ReservedMemory>
+            <dict Enabled="false" Comment="HD3000: IGPU memory corruption errata">
+                <Address>268435456</Address>
+                <Size>268435456</Size>
+                <Type>Reserved</Type>
+            </dict>
+            <dict Enabled="false" Comment="Fix black screen on wake from hibernation for Lenovo Thinkpad T490">
+                <Address>569344</Address>
+                <Size>4096</Size>
+                <Type>RuntimeCode</Type>
+            </dict>
+        </ReservedMemory>
+    </UEFI>
+</root>
