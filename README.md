@@ -23,5 +23,5 @@ configuration structure and types
 
 ```$ java -jar xml2oc.jar oc.xslt oc.xml config.plist```
 
-1. This is it!
+Enjoy!
 
