@@ -721,6 +721,284 @@
                     <key>WriteFlash</key>
                     <xsl:element name="{/oc:root/oc:NVRAM/oc:WriteFlash/text()}"/>
                 </dict>
+                <key>PlatformInfo</key>
+                <dict>
+                    <key>Automatic</key>
+                    <xsl:element name="{/oc:root/oc:PlatformInfo/oc:Automatic/text()}"/>
+                    <xsl:choose>
+                        <xsl:when test="/oc:root/oc:PlatformInfo/oc:Automatic/text() = 'false'">
+                            <key>#WARNING</key>
+                            <string>Automatic "false" is not implemented.</string>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <key>Generic</key>
+                            <dict>
+                                <xsl:for-each select="/oc:root/oc:PlatformInfo/oc:Generic">
+                                    <key>SpoofVendor</key>
+                                    <xsl:element name="{oc:SpoofVendor}"/>
+                                    <key>AdviseWindows</key>
+                                    <xsl:element name="{oc:AdviseWindows}"/>
+                                    <key>SystemMemoryStatus</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemMemoryStatus"/>
+                                    </string>
+                                    <key>ProcessorType</key>
+                                    <integer>
+                                        <xsl:value-of select="oc:ProcessorType"/>
+                                    </integer>
+                                    <key>SystemProductName</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemProductName"/>
+                                    </string>
+                                    <key>SystemSerialNumber</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemSerialNumber"/>
+                                    </string>
+                                    <key>SystemUUID</key>
+                                    <string>
+                                        <xsl:value-of select="oc:SystemUUID"/>
+                                    </string>
+                                    <key>MLB</key>
+                                    <string>
+                                        <xsl:value-of select="oc:MLB"/>
+                                    </string>
+                                    <key>ROM</key>
+                                    <data>
+                                        <xsl:value-of select="oc:ROM"/>
+                                    </data>
+                                </xsl:for-each>
+                            </dict>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <key>UpdateDataHub</key>
+                    <xsl:element name="{/oc:root/oc:PlatformInfo/oc:UpdateDataHub/text()}"/>
+                    <key>UpdateNVRAM</key>
+                    <xsl:element name="{/oc:root/oc:PlatformInfo/oc:UpdateNVRAM/text()}"/>
+                    <key>UpdateSMBIOS</key>
+                    <xsl:element name="{/oc:root/oc:PlatformInfo/oc:UpdateSMBIOS/text()}"/>
+                    <key>UpdateSMBIOSMode</key>
+                    <string>
+                        <xsl:value-of select="/oc:root/oc:PlatformInfo/oc:UpdateSMBIOSMode"/>
+                    </string>
+                </dict>
+                <key>UEFI</key>
+                <dict>
+                    <key>APFS</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:APFS">
+                            <key>EnableJumpstart</key>
+                            <xsl:element name="{oc:EnableJumpstart}"/>
+                            <key>GlobalConnect</key>
+                            <xsl:element name="{oc:GlobalConnect}"/>
+                            <key>HideVerbose</key>
+                            <xsl:element name="{oc:HideVerbose}"/>
+                            <key>JumpstartHotPlug</key>
+                            <xsl:element name="{oc:JumpstartHotPlug}"/>
+                            <key>MinDate</key>
+                            <integer>
+                                <xsl:value-of select="oc:MinDate"/>
+                            </integer>
+                            <key>MinVersion</key>
+                            <integer>
+                                <xsl:value-of select="oc:MinVersion"/>
+                            </integer>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Audio</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:Audio">
+                            <key>AudioCodec</key>
+                            <integer>
+                                <xsl:value-of select="oc:AudioDevice"/>
+                            </integer>
+                            <key>AudioDevice</key>
+                            <string>
+                                <xsl:value-of select="oc:AudioDevice"/>
+                            </string>
+                            <key>AudioOut</key>
+                            <integer>
+                                <xsl:value-of select="oc:AudioOut"/>
+                            </integer>
+                            <key>AudioSupport</key>
+                            <xsl:element name="{oc:AudioSupport}"/>
+                            <key>MinimumVolume</key>
+                            <integer>
+                                <xsl:value-of select="oc:MinimumVolume"/>
+                            </integer>
+                            <key>PlayChime</key>
+                            <xsl:element name="{oc:PlayChime}"/>
+                            <key>VolumeAmplifier</key>
+                            <integer>
+                                <xsl:value-of select="oc:VolumeAmplifier"/>
+                            </integer>
+                        </xsl:for-each>
+                    </dict>
+                    <key>ConnectDrivers</key>
+                    <xsl:element name="{/oc:root/oc:UEFI/oc:ConnectDrivers/text()}"/>
+                    <key>Drivers</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:Drivers/oc:driver">
+                            <string>
+                                <xsl:value-of select="@name"/>
+                            </string>
+                        </xsl:for-each>
+                    </array>
+                    <key>Input</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:Input">
+                            <key>KeyFiltering</key>
+                            <xsl:element name="{oc:KeyFiltering}"/>
+                            <key>KeyForgetThreshold</key>
+                            <integer>
+                                <xsl:value-of select="oc:KeyForgetThreshold"/>
+                            </integer>
+                            <key>KeyMergeThreshold</key>
+                            <integer>
+                                <xsl:value-of select="oc:KeyMergeThreshold"/>
+                            </integer>
+                            <key>KeySupport</key>
+                            <xsl:element name="{oc:KeySupport}"/>
+                            <key>KeySupportMode</key>
+                            <string>
+                                <xsl:value-of select="oc:KeySupportMode"/>
+                            </string>
+                            <key>KeySwap</key>
+                            <xsl:element name="{oc:KeySwap}"/>
+                            <key>PointerSupport</key>
+                            <xsl:element name="{oc:PointerSupport}"/>
+                            <key>PointerSupportMode</key>
+                            <string>
+                                <xsl:value-of select="oc:PointerSupportMode"/>
+                            </string>
+                            <key>TimerResolution</key>
+                            <integer>
+                                <xsl:value-of select="oc:TimerResolution"/>
+                            </integer>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Output</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:Output">
+                            <key>TextRenderer</key>
+                            <string>
+                                <xsl:value-of select="oc:TextRenderer"/>
+                            </string>
+                            <key>ConsoleMode</key>
+                            <string>
+                                <xsl:value-of select="oc:ConsoleMode"/>
+                            </string>
+                            <key>Resolution</key>
+                            <string>
+                                <xsl:value-of select="oc:Resolution"/>
+                            </string>
+                            <key>ClearScreenOnModeSwitch</key>
+                            <xsl:element name="{oc:ClearScreenOnModeSwitch}"/>
+                            <key>DirectGopRendering</key>
+                            <xsl:element name="{oc:DirectGopRendering}"/>
+                            <key>IgnoreTextInGraphics</key>
+                            <xsl:element name="{oc:IgnoreTextInGraphics}"/>
+                            <key>ReplaceTabWithSpace</key>
+                            <xsl:element name="{oc:ReplaceTabWithSpace}"/>
+                            <key>ProvideConsoleGop</key>
+                            <xsl:element name="{oc:ProvideConsoleGop}"/>
+                            <key>ReconnectOnResChange</key>
+                            <xsl:element name="{oc:ReconnectOnResChange}"/>
+                            <key>SanitiseClearScreen</key>
+                            <xsl:element name="{oc:SanitiseClearScreen}"/>
+                            <key>UgaPassThrough</key>
+                            <xsl:element name="{oc:UgaPassThrough}"/>
+                        </xsl:for-each>
+                    </dict>
+                    <key>ProtocolOverrides</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:ProtocolOverrides">
+                            <key>AppleAudio</key>
+                            <xsl:element name="{oc:AppleAudio}"/>
+                            <key>AppleBootPolicy</key>
+                            <xsl:element name="{oc:AppleBootPolicy}"/>
+                            <key>AppleDebugLog</key>
+                            <xsl:element name="{oc:AppleDebugLog}"/>
+                            <key>AppleEvent</key>
+                            <xsl:element name="{oc:AppleEvent}"/>
+                            <key>AppleFramebufferInfo</key>
+                            <xsl:element name="{oc:AppleFramebufferInfo}"/>
+                            <key>AppleImageConversion</key>
+                            <xsl:element name="{oc:AppleImageConversion}"/>
+                            <key>AppleImg4Verification</key>
+                            <xsl:element name="{oc:AppleImg4Verification}"/>
+                            <key>AppleKeyMap</key>
+                            <xsl:element name="{oc:AppleKeyMap}"/>
+                            <key>AppleRtcRam</key>
+                            <xsl:element name="{oc:AppleRtcRam}"/>
+                            <key>AppleSecureBoot</key>
+                            <xsl:element name="{oc:AppleSecureBoot}"/>
+                            <key>AppleSmcIo</key>
+                            <xsl:element name="{oc:AppleSmcIo}"/>
+                            <key>AppleUserInterfaceTheme</key>
+                            <xsl:element name="{oc:AppleUserInterfaceTheme}"/>
+                            <key>DataHub</key>
+                            <xsl:element name="{oc:DataHub}"/>
+                            <key>DeviceProperties</key>
+                            <xsl:element name="{oc:DeviceProperties}"/>
+                            <key>FirmwareVolume</key>
+                            <xsl:element name="{oc:FirmwareVolume}"/>
+                            <key>HashServices</key>
+                            <xsl:element name="{oc:HashServices}"/>
+                            <key>OSInfo</key>
+                            <xsl:element name="{oc:OSInfo}"/>
+                            <key>UnicodeCollation</key>
+                            <xsl:element name="{oc:UnicodeCollation}"/>
+                        </xsl:for-each>
+                    </dict>
+                    <key>Quirks</key>
+                    <dict>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:Quirks">
+                            <key>DeduplicateBootOrder</key>
+                            <xsl:element name="{oc:DeduplicateBootOrder}"/>
+                            <key>ExitBootServicesDelay</key>
+                            <integer>
+                                <xsl:value-of select="oc:ExitBootServicesDelay"/>
+                            </integer>
+                            <key>IgnoreInvalidFlexRatio</key>
+                            <xsl:element name="{oc:IgnoreInvalidFlexRatio}"/>
+                            <key>ReleaseUsbOwnership</key>
+                            <xsl:element name="{oc:ReleaseUsbOwnership}"/>
+                            <key>RequestBootVarRouting</key>
+                            <xsl:element name="{oc:RequestBootVarRouting}"/>
+                            <key>TscSyncTimeout</key>
+                            <integer>
+                                <xsl:value-of select="oc:TscSyncTimeout"/>
+                            </integer>
+                            <key>UnblockFsConnect</key>
+                            <xsl:element name="{oc:UnblockFsConnect}"/>
+                        </xsl:for-each>
+                    </dict>
+                    <key>ReservedMemory</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:UEFI/oc:ReservedMemory/oc:dict">
+                            <dict>
+                                <key>Address</key>
+                                <integer>
+                                    <xsl:value-of select="oc:Address"/>
+                                </integer>
+                                <key>Type</key>
+                                <string>
+                                    <xsl:value-of select="oc:Type"/>
+                                </string>
+                                <key>Comment</key>
+                                <string>
+                                    <xsl:value-of select="@Comment"/>
+                                </string>
+                                <key>Enabled</key>
+                                <xsl:element name="{@Enabled}"/>
+                                <key>Size</key>
+                                <integer>
+                                    <xsl:value-of select="oc:Size"/>
+                                </integer>
+                            </dict>
+                        </xsl:for-each>
+                    </array>
+                </dict>
             </dict>
         </plist>
     </xsl:template>
