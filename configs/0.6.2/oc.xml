@@ -203,6 +203,76 @@
                 <ReplaceMask/>
                 <Skip>0</Skip>
             </dict>
+            <dict Enabled="false" Comment="Disable ACPI logging">
+                <Arch>Any</Arch>
+                <Base>_AcpiOsVprintf</Base>
+                <Count>0</Count>
+                <Find/>
+                <Identifier>com.apple.driver.AppleACPIPlatform</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel>18.5.0</MaxKernel>
+                <MinKernel>18.5.0</MinKernel>
+                <Replace>ww==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Broadcom BCM57785 patch">
+                <Arch>x86_64</Arch>
+                <Base>__ZN11BCM5701Enet14getAdapterInfoEv</Base>
+                <Count>1</Count>
+                <Find>6AAA//9miYMABQAA</Find>
+                <Identifier>com.apple.iokit.AppleBCM5701Ethernet</Identifier>
+                <Limit>0</Limit>
+                <Mask>/wAA////////////</Mask>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>uLQWAABmiYMABQAA</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Send panic string to serial port">
+                <Arch>x86_64</Arch>
+                <Base>_panic</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4XbdN/r/g==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Send early prints to serial port">
+                <Arch>x86_64</Arch>
+                <Base>_kernel_debug_string_early</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4XbdN/D</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Print K and dead loop">
+                <Arch>x86_64</Arch>
+                <Base>_vstart</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>sUtmuv0D7KggdPtmuvgDiMjusQpmuv0D7KggdPtmuvgDiMju6/4=</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
         </Patch>
         <Quirks>
             <AppleCpuPmCfgLock>false</AppleCpuPmCfgLock>
