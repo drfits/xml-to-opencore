@@ -253,7 +253,7 @@
                                                     <xs:element name="prop" minOccurs="0" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:simpleContent>
-                                                                <xs:extension base="xs:string">
+                                                                <xs:extension base="xs:base64Binary">
                                                                     <xs:attribute name="key" use="required">
                                                                         <xs:simpleType>
                                                                             <xs:restriction base="xs:string">
