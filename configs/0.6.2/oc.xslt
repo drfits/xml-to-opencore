@@ -2,9 +2,6 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                xmlns:oc="https://www.drfits.com/schema/oc"
                exclude-result-prefixes="oc">
-    <!-- Pretty Print Output -->
-    <xsl:strip-space elements="*"/>
-    <xsl:output method="xml" indent="yes"/>
     <xsl:output method="xml" doctype-system="http://www.apple.com/DTDs/PropertyList-1.0.dtd"
                 doctype-public="-//Apple//DTD PLIST 1.0//EN"/>
     <xsl:template match="/">
