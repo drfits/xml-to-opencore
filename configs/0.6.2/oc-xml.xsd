@@ -391,9 +391,9 @@
                             <xs:element name="Emulate">
                                 <xs:complexType>
                                     <xs:sequence>
+                                        <xs:element name="DummyPowerManagement" type="xs:boolean"/>
                                         <xs:element name="Cpuid1Data" type="xs:base64Binary"/>
                                         <xs:element name="Cpuid1Mask" type="xs:base64Binary"/>
-                                        <xs:element name="DummyPowerManagement" type="xs:boolean"/>
                                         <xs:element name="MaxKernel" type="xs:string"/>
                                         <xs:element name="MinKernel" type="xs:string"/>
                                     </xs:sequence>
