@@ -113,6 +113,47 @@
                 <xs:element name="ACPI">
                     <xs:complexType>
                         <xs:sequence>
+                            <xs:element name="Add">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                                <xs:attribute name="Path" use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:unique name="acpi-add-uniqueAddPath">
+                                    <xs:selector xpath="./*"/>
+                                    <xs:field xpath="@Path"/>
+                                </xs:unique>
+                            </xs:element>
+                            <xs:element name="Delete">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="All" type="xs:boolean"/>
+                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
+                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
+                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
+                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="Patch">
                                 <xs:complexType>
                                     <xs:sequence>
@@ -136,47 +177,6 @@
                                         </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Delete">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="All" type="xs:boolean"/>
-                                                    <xs:element name="OemTableId" type="xs:base64Binary"/>
-                                                    <xs:element name="TableLength" type="xs:nonNegativeInteger"/>
-                                                    <xs:element name="TableSignature" type="xs:base64Binary"/>
-                                                </xs:sequence>
-                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="Comment" type="xs:string" use="required"/>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Add">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="dict" minOccurs="0" maxOccurs="unbounded">
-                                            <xs:complexType>
-                                                <xs:attribute name="Comment" type="xs:string"/>
-                                                <xs:attribute name="Enabled" type="xs:boolean" use="required"/>
-                                                <xs:attribute name="Path" use="required">
-                                                    <xs:simpleType>
-                                                        <xs:restriction base="xs:string">
-                                                            <xs:minLength value="1"/>
-                                                        </xs:restriction>
-                                                    </xs:simpleType>
-                                                </xs:attribute>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                                <xs:unique name="acpi-add-uniqueAddPath">
-                                    <xs:selector xpath="./*"/>
-                                    <xs:field xpath="@Path"/>
-                                </xs:unique>
                             </xs:element>
                             <xs:element name="Quirks">
                                 <xs:complexType>
