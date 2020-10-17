@@ -437,9 +437,9 @@
             <SystemSerialNumber>W00000000001</SystemSerialNumber>
             <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
         </Generic>
-        <UpdateDataHub>false</UpdateDataHub>
-        <UpdateNVRAM>false</UpdateNVRAM>
-        <UpdateSMBIOS>false</UpdateSMBIOS>
+        <UpdateDataHub>true</UpdateDataHub>
+        <UpdateNVRAM>true</UpdateNVRAM>
+        <UpdateSMBIOS>true</UpdateSMBIOS>
         <UpdateSMBIOSMode>Create</UpdateSMBIOSMode>
     </PlatformInfo>
     <UEFI>
