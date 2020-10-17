@@ -3,6 +3,35 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://www.drfits.com/schema/oc oc-xml.xsd">
     <ACPI>
+        <Add>
+            <dict Enabled="false" Comment="My custom DSDT" Path="DSDT.aml"/>
+            <dict Enabled="false" Comment="My custom SSDT" Path="SSDT-1.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PLUG.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-SBUS-MCHC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PNLF.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EC-USBX.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EHCx_OFF.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-AWAC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-RTC0.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-ALS0.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PMC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-IMEI.aml"/>
+        </Add>
+        <Delete>
+            <dict Enabled="false" Comment="Delete CpuPm">
+                <All>false</All>
+                <OemTableId>Q3B1UG0AAAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+            <dict Enabled="false" Comment="Delete Cpu0Ist">
+                <All>false</All>
+                <OemTableId>Q3B1MElzdAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+        </Delete>
         <Patch>
             <dict Enabled="false" Comment="_Q11 to XQ11">
                 <Count>1</Count>
@@ -29,24 +58,6 @@
                 <TableSignature/>
             </dict>
         </Patch>
-        <Delete>
-            <dict Enabled="false" Comment="Delete CpuPm">
-                <All>false</All>
-                <OemTableId>Q3B1UG0AAAA=</OemTableId>
-                <TableLength>0</TableLength>
-                <TableSignature>U1NEVA==</TableSignature>
-            </dict>
-            <dict Enabled="false" Comment="Delete Cpu0Ist">
-                <All>false</All>
-                <OemTableId>Q3B1MElzdAA=</OemTableId>
-                <TableLength>0</TableLength>
-                <TableSignature>U1NEVA==</TableSignature>
-            </dict>
-        </Delete>
-        <Add>
-            <dict Enabled="false" Comment="Custom DSDT" Path="DSDT.aml"/>
-            <dict Enabled="false" Comment="Custom SSDT" Path="SSDT.aml"/>
-        </Add>
         <Quirks>
             <FadtEnableReset>false</FadtEnableReset>
             <NormalizeHeaders>false</NormalizeHeaders>
@@ -65,32 +76,29 @@
                   Address="4278190080"/>
         </MmioWhitelist>
         <Quirks>
-            <AvoidRuntimeDefrag>false</AvoidRuntimeDefrag>
+            <AvoidRuntimeDefrag>true</AvoidRuntimeDefrag>
             <DevirtualiseMmio>false</DevirtualiseMmio>
             <DisableSingleUser>false</DisableSingleUser>
             <DisableVariableWrite>false</DisableVariableWrite>
             <DiscardHibernateMap>false</DiscardHibernateMap>
-            <EnableSafeModeSlide>false</EnableSafeModeSlide>
-            <EnableWriteUnprotector>false</EnableWriteUnprotector>
+            <EnableSafeModeSlide>true</EnableSafeModeSlide>
+            <EnableWriteUnprotector>true</EnableWriteUnprotector>
             <ForceExitBootServices>false</ForceExitBootServices>
             <ProtectMemoryRegions>false</ProtectMemoryRegions>
             <ProtectSecureBoot>false</ProtectSecureBoot>
             <ProtectUefiServices>false</ProtectUefiServices>
-            <ProvideCustomSlide>false</ProvideCustomSlide>
+            <ProvideCustomSlide>true</ProvideCustomSlide>
             <ProvideMaxSlide>0</ProvideMaxSlide>
             <RebuildAppleMemoryMap>false</RebuildAppleMemoryMap>
-            <SetupVirtualMap>false</SetupVirtualMap>
+            <SetupVirtualMap>true</SetupVirtualMap>
             <SignalAppleOS>false</SignalAppleOS>
             <SyncRuntimePermissions>false</SyncRuntimePermissions>
         </Quirks>
     </Booter>
     <DeviceProperties>
         <Add>
-            <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
-                <prop key="built-in">AQ==</prop>
-            </device>
-            <device path="PciRoot(0x0)/Pci(0x2,0x0)">
-                <prop key="AAPL,ig-platform-id">AwASWQ==</prop>
+            <device path="PciRoot(0x0)/Pci(0x1b,0x0)">
+                <prop key="layout-id">AQAAAA==</prop>
             </device>
         </Add>
         <Delete/>
@@ -113,7 +121,7 @@
                 <MinKernel>12.0.0</MinKernel>
                 <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict Enabled="false" Comment="Video patches">
+            <dict Enabled="true" Comment="Video patches">
                 <Arch>x86_64</Arch>
                 <BundlePath>WhateverGreen.kext</BundlePath>
                 <ExecutablePath>Contents/MacOS/WhateverGreen</ExecutablePath>
@@ -121,7 +129,7 @@
                 <MinKernel>12.0.0</MinKernel>
                 <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict Enabled="false" Comment="Audio patches">
+            <dict Enabled="true" Comment="Audio patches">
                 <Arch>x86_64</Arch>
                 <BundlePath>AppleALC.kext</BundlePath>
                 <ExecutablePath>Contents/MacOS/AppleALC</ExecutablePath>
@@ -155,7 +163,7 @@
             </dict>
         </Add>
         <Block>
-            <dict Enabled="false" Comment="Disable AppleTyMCEDriver">
+            <dict Enabled="false" Comment="">
                 <Arch>Any</Arch>
                 <Identifier>com.apple.driver.AppleTyMCEDriver</Identifier>
                 <MaxKernel/>
@@ -163,9 +171,9 @@
             </dict>
         </Block>
         <Emulate>
+            <DummyPowerManagement>false</DummyPowerManagement>
             <Cpuid1Data/>
             <Cpuid1Mask/>
-            <DummyPowerManagement>false</DummyPowerManagement>
             <MaxKernel/>
             <MinKernel/>
         </Emulate>
@@ -192,6 +200,76 @@
                 <MaxKernel/>
                 <MinKernel>19.0.0</MinKernel>
                 <Replace>ww==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Disable ACPI logging">
+                <Arch>Any</Arch>
+                <Base>_AcpiOsVprintf</Base>
+                <Count>0</Count>
+                <Find/>
+                <Identifier>com.apple.driver.AppleACPIPlatform</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel>18.5.0</MaxKernel>
+                <MinKernel>18.5.0</MinKernel>
+                <Replace>ww==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Broadcom BCM57785 patch">
+                <Arch>x86_64</Arch>
+                <Base>__ZN11BCM5701Enet14getAdapterInfoEv</Base>
+                <Count>1</Count>
+                <Find>6AAA//9miYMABQAA</Find>
+                <Identifier>com.apple.iokit.AppleBCM5701Ethernet</Identifier>
+                <Limit>0</Limit>
+                <Mask>/wAA////////////</Mask>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>uLQWAABmiYMABQAA</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Send panic string to serial port">
+                <Arch>x86_64</Arch>
+                <Base>_panic</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4XbdN/r/g==</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Send early prints to serial port">
+                <Arch>x86_64</Arch>
+                <Base>_kernel_debug_string_early</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>MduKD4TJdQT/w7EKZrr9A+yoIHT7Zrr4A4jI7kj/x4XbdN/D</Replace>
+                <ReplaceMask/>
+                <Skip>0</Skip>
+            </dict>
+            <dict Enabled="false" Comment="Print K and dead loop">
+                <Arch>x86_64</Arch>
+                <Base>_vstart</Base>
+                <Count>1</Count>
+                <Find/>
+                <Identifier>kernel</Identifier>
+                <Limit>0</Limit>
+                <Mask/>
+                <MaxKernel/>
+                <MinKernel/>
+                <Replace>sUtmuv0D7KggdPtmuvgDiMjusQpmuv0D7KggdPtmuvgDiMju6/4=</Replace>
                 <ReplaceMask/>
                 <Skip>0</Skip>
             </dict>
@@ -222,19 +300,19 @@
         </Scheme>
     </Kernel>
     <Misc>
+        <BlessOverride/>
         <Boot>
             <ConsoleAttributes>0</ConsoleAttributes>
             <HibernateMode>None</HibernateMode>
             <HideAuxiliary>false</HideAuxiliary>
             <PickerAttributes>1</PickerAttributes>
             <PickerAudioAssist>false</PickerAudioAssist>
+            <PickerMode>Builtin</PickerMode>
             <PollAppleHotKeys>false</PollAppleHotKeys>
             <ShowPicker>true</ShowPicker>
             <TakeoffDelay>0</TakeoffDelay>
             <Timeout>5</Timeout>
-            <PickerMode>Builtin</PickerMode>
         </Boot>
-        <BlessOverride/>
         <Debug>
             <AppleDebug>false</AppleDebug>
             <ApplePanic>false</ApplePanic>
@@ -265,9 +343,9 @@
             <HaltLevel>2147483648</HaltLevel>
             <PasswordHash/>
             <PasswordSalt/>
-            <Vault>Secure</Vault>
             <ScanPolicy>17760515</ScanPolicy>
             <SecureBootModel>Default</SecureBootModel>
+            <Vault>Secure</Vault>
         </Security>
         <Tools>
             <entry Enabled="false" Name="UEFI Shell">
@@ -401,16 +479,16 @@
             <SystemUUID>00000000-0000-0000-0000-000000000000</SystemUUID>
             <SystemVersion>1.0</SystemVersion>
         </SMBIOS>
-        <UpdateDataHub>false</UpdateDataHub>
-        <UpdateNVRAM>false</UpdateNVRAM>
-        <UpdateSMBIOS>false</UpdateSMBIOS>
+        <UpdateDataHub>true</UpdateDataHub>
+        <UpdateNVRAM>true</UpdateNVRAM>
+        <UpdateSMBIOS>true</UpdateSMBIOS>
         <UpdateSMBIOSMode>Create</UpdateSMBIOSMode>
     </PlatformInfo>
     <UEFI>
         <APFS>
-            <EnableJumpstart>false</EnableJumpstart>
+            <EnableJumpstart>true</EnableJumpstart>
             <GlobalConnect>false</GlobalConnect>
-            <HideVerbose>false</HideVerbose>
+            <HideVerbose>true</HideVerbose>
             <JumpstartHotPlug>false</JumpstartHotPlug>
             <MinDate>0</MinDate>
             <MinVersion>0</MinVersion>
@@ -424,13 +502,22 @@
             <PlayChime>false</PlayChime>
             <VolumeAmplifier>0</VolumeAmplifier>
         </Audio>
-        <ConnectDrivers>false</ConnectDrivers>
+        <ConnectDrivers>true</ConnectDrivers>
         <Drivers>
             <driver name="HfsPlus.efi"/>
             <driver name="OpenRuntime.efi"/>
             <driver name="#OpenCanopy.efi"/>
             <driver name="#AudioDxe.efi"/>
             <driver name="#OpenUsbKbDxe.efi"/>
+            <driver name="#UsbMouseDxe.efi"/>
+            <driver name="#Ps2KeyboardDxe.efi"/>
+            <driver name="#Ps2MouseDxe.efi"/>
+            <driver name="#HiiDatabase.efi"/>
+            <driver name="#NvmExpressDxe.efi"/>
+            <driver name="#XhciDxe.efi"/>
+            <driver name="#ExFatDxe.efi"/>
+            <driver name="#PartitionDxe.efi"/>
+            <driver name="#CrScreenshotDxe.efi"/>
         </Drivers>
         <Input>
             <KeyFiltering>false</KeyFiltering>
@@ -441,7 +528,7 @@
             <KeySwap>false</KeySwap>
             <PointerSupport>false</PointerSupport>
             <PointerSupportMode>ASUS</PointerSupportMode>
-            <TimerResolution>5000</TimerResolution>
+            <TimerResolution>50000</TimerResolution>
         </Input>
         <Output>
             <TextRenderer>BuiltinGraphics</TextRenderer>
@@ -477,11 +564,11 @@
             <UnicodeCollation>false</UnicodeCollation>
         </ProtocolOverrides>
         <Quirks>
-            <DeduplicateBootOrder>false</DeduplicateBootOrder>
+            <DeduplicateBootOrder>true</DeduplicateBootOrder>
             <ExitBootServicesDelay>0</ExitBootServicesDelay>
             <IgnoreInvalidFlexRatio>false</IgnoreInvalidFlexRatio>
             <ReleaseUsbOwnership>false</ReleaseUsbOwnership>
-            <RequestBootVarRouting>false</RequestBootVarRouting>
+            <RequestBootVarRouting>true</RequestBootVarRouting>
             <TscSyncTimeout>0</TscSyncTimeout>
             <UnblockFsConnect>false</UnblockFsConnect>
         </Quirks>

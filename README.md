@@ -18,8 +18,8 @@ configuration structure and types
 
 1. install [JRE](https://www.java.com/download/) 
 1. download the repo and open config folder in terminal. Folder structure contains OpenCore version ("/configs/{opencore version}") therefore use your build.
-1. change oc.xml according to required properties
-1. create config.plist with command below:
+1. change oc.xml with require properties
+1. create a config.plist with command below:
 
 ```$ java -jar xml2oc.jar oc.xslt oc.xml config.plist```
 
