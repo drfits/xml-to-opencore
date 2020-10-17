@@ -444,9 +444,9 @@
     </PlatformInfo>
     <UEFI>
         <APFS>
-            <EnableJumpstart>false</EnableJumpstart>
+            <EnableJumpstart>true</EnableJumpstart>
             <GlobalConnect>false</GlobalConnect>
-            <HideVerbose>false</HideVerbose>
+            <HideVerbose>true</HideVerbose>
             <JumpstartHotPlug>false</JumpstartHotPlug>
             <MinDate>0</MinDate>
             <MinVersion>0</MinVersion>
@@ -460,13 +460,22 @@
             <PlayChime>false</PlayChime>
             <VolumeAmplifier>0</VolumeAmplifier>
         </Audio>
-        <ConnectDrivers>false</ConnectDrivers>
+        <ConnectDrivers>true</ConnectDrivers>
         <Drivers>
             <driver name="HfsPlus.efi"/>
             <driver name="OpenRuntime.efi"/>
             <driver name="#OpenCanopy.efi"/>
             <driver name="#AudioDxe.efi"/>
             <driver name="#OpenUsbKbDxe.efi"/>
+            <driver name="#UsbMouseDxe.efi"/>
+            <driver name="#Ps2KeyboardDxe.efi"/>
+            <driver name="#Ps2MouseDxe.efi"/>
+            <driver name="#HiiDatabase.efi"/>
+            <driver name="#NvmExpressDxe.efi"/>
+            <driver name="#XhciDxe.efi"/>
+            <driver name="#ExFatDxe.efi"/>
+            <driver name="#PartitionDxe.efi"/>
+            <driver name="#CrScreenshotDxe.efi"/>
         </Drivers>
         <Input>
             <KeyFiltering>false</KeyFiltering>
@@ -477,7 +486,7 @@
             <KeySwap>false</KeySwap>
             <PointerSupport>false</PointerSupport>
             <PointerSupportMode>ASUS</PointerSupportMode>
-            <TimerResolution>5000</TimerResolution>
+            <TimerResolution>50000</TimerResolution>
         </Input>
         <Output>
             <TextRenderer>BuiltinGraphics</TextRenderer>
@@ -513,11 +522,11 @@
             <UnicodeCollation>false</UnicodeCollation>
         </ProtocolOverrides>
         <Quirks>
-            <DeduplicateBootOrder>false</DeduplicateBootOrder>
+            <DeduplicateBootOrder>true</DeduplicateBootOrder>
             <ExitBootServicesDelay>0</ExitBootServicesDelay>
             <IgnoreInvalidFlexRatio>false</IgnoreInvalidFlexRatio>
             <ReleaseUsbOwnership>false</ReleaseUsbOwnership>
-            <RequestBootVarRouting>false</RequestBootVarRouting>
+            <RequestBootVarRouting>true</RequestBootVarRouting>
             <TscSyncTimeout>0</TscSyncTimeout>
             <UnblockFsConnect>false</UnblockFsConnect>
         </Quirks>
