@@ -97,11 +97,8 @@
     </Booter>
     <DeviceProperties>
         <Add>
-            <device path="PciRoot(0x0)/Pci(0x1F,0x6)">
-                <prop key="built-in">AQ==</prop>
-            </device>
-            <device path="PciRoot(0x0)/Pci(0x2,0x0)">
-                <prop key="AAPL,ig-platform-id">AwASWQ==</prop>
+            <device path="PciRoot(0x0)/Pci(0x1b,0x0)">
+                <prop key="layout-id">AQAAAA==</prop>
             </device>
         </Add>
         <Delete/>
@@ -124,7 +121,7 @@
                 <MinKernel>12.0.0</MinKernel>
                 <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict Enabled="false" Comment="Video patches">
+            <dict Enabled="true" Comment="Video patches">
                 <Arch>x86_64</Arch>
                 <BundlePath>WhateverGreen.kext</BundlePath>
                 <ExecutablePath>Contents/MacOS/WhateverGreen</ExecutablePath>
@@ -132,7 +129,7 @@
                 <MinKernel>12.0.0</MinKernel>
                 <PlistPath>Contents/Info.plist</PlistPath>
             </dict>
-            <dict Enabled="false" Comment="Audio patches">
+            <dict Enabled="true" Comment="Audio patches">
                 <Arch>x86_64</Arch>
                 <BundlePath>AppleALC.kext</BundlePath>
                 <ExecutablePath>Contents/MacOS/AppleALC</ExecutablePath>
@@ -166,7 +163,7 @@
             </dict>
         </Add>
         <Block>
-            <dict Enabled="false" Comment="Disable AppleTyMCEDriver">
+            <dict Enabled="false" Comment="">
                 <Arch>Any</Arch>
                 <Identifier>com.apple.driver.AppleTyMCEDriver</Identifier>
                 <MaxKernel/>
@@ -174,9 +171,9 @@
             </dict>
         </Block>
         <Emulate>
+            <DummyPowerManagement>false</DummyPowerManagement>
             <Cpuid1Data/>
             <Cpuid1Mask/>
-            <DummyPowerManagement>false</DummyPowerManagement>
             <MaxKernel/>
             <MinKernel/>
         </Emulate>
