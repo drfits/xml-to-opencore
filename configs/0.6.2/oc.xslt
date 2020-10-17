@@ -475,6 +475,14 @@
                 </dict>
                 <key>Misc</key>
                 <dict>
+                    <key>BlessOverride</key>
+                    <array>
+                        <xsl:for-each select="/oc:root/oc:Misc/oc:BlessOverride/oc:path">
+                            <string>
+                                <xsl:value-of select="text()"/>
+                            </string>
+                        </xsl:for-each>
+                    </array>
                     <key>Boot</key>
                     <dict>
                         <xsl:for-each select="/oc:root/oc:Misc/oc:Boot">
@@ -494,6 +502,10 @@
                             </integer>
                             <key>PickerAudioAssist</key>
                             <xsl:element name="{oc:PickerAudioAssist}"/>
+                            <key>PickerMode</key>
+                            <string>
+                                <xsl:value-of select="oc:PickerMode"/>
+                            </string>
                             <key>PollAppleHotKeys</key>
                             <xsl:element name="{oc:PollAppleHotKeys}"/>
                             <key>ShowPicker</key>
@@ -506,20 +518,8 @@
                             <integer>
                                 <xsl:value-of select="oc:Timeout"/>
                             </integer>
-                            <key>PickerMode</key>
-                            <string>
-                                <xsl:value-of select="oc:PickerMode"/>
-                            </string>
                         </xsl:for-each>
                     </dict>
-                    <key>BlessOverride</key>
-                    <array>
-                        <xsl:for-each select="/oc:root/oc:Misc/oc:BlessOverride/oc:path">
-                            <string>
-                                <xsl:value-of select="text()"/>
-                            </string>
-                        </xsl:for-each>
-                    </array>
                     <key>Debug</key>
                     <dict>
                         <xsl:for-each select="/oc:root/oc:Misc/oc:Debug">

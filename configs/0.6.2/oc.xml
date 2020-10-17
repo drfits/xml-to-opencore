@@ -300,19 +300,19 @@
         </Scheme>
     </Kernel>
     <Misc>
+        <BlessOverride/>
         <Boot>
             <ConsoleAttributes>0</ConsoleAttributes>
             <HibernateMode>None</HibernateMode>
             <HideAuxiliary>false</HideAuxiliary>
             <PickerAttributes>1</PickerAttributes>
             <PickerAudioAssist>false</PickerAudioAssist>
+            <PickerMode>Builtin</PickerMode>
             <PollAppleHotKeys>false</PollAppleHotKeys>
             <ShowPicker>true</ShowPicker>
             <TakeoffDelay>0</TakeoffDelay>
             <Timeout>5</Timeout>
-            <PickerMode>Builtin</PickerMode>
         </Boot>
-        <BlessOverride/>
         <Debug>
             <AppleDebug>false</AppleDebug>
             <ApplePanic>false</ApplePanic>
