@@ -1007,7 +1007,7 @@
                         <xsl:for-each select="/oc:root/oc:UEFI/oc:Audio">
                             <key>AudioCodec</key>
                             <integer>
-                                <xsl:value-of select="oc:AudioDevice"/>
+                                <xsl:value-of select="oc:AudioCodec"/>
                             </integer>
                             <key>AudioDevice</key>
                             <string>
