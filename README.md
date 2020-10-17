@@ -1,5 +1,5 @@
 # xml-to-opencore
-Just an attempt to make more handy configuration approach for OpenCore. The main idea is to keep configuration at vell-formed XML and transform it to OpenCore plist format.
+Just an attempt to make more handy configuration approach for [OpenCore](https://github.com/acidanthera/OpenCorePkg). The main idea is to keep configuration at vell-formed XML and transform it to OpenCore plist format.
 
 :question: Why you may choose XML instead of plist format:
 
