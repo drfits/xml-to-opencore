@@ -3,6 +3,35 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://www.drfits.com/schema/oc oc-xml.xsd">
     <ACPI>
+        <Add>
+            <dict Enabled="false" Comment="My custom DSDT" Path="DSDT.aml"/>
+            <dict Enabled="false" Comment="My custom SSDT" Path="SSDT-1.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PLUG.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-SBUS-MCHC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PNLF.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EC-USBX.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-EHCx_OFF.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-AWAC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-RTC0.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-ALS0.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-PMC.aml"/>
+            <dict Enabled="false" Comment="Read the comment in dsl sample" Path="SSDT-IMEI.aml"/>
+        </Add>
+        <Delete>
+            <dict Enabled="false" Comment="Delete CpuPm">
+                <All>false</All>
+                <OemTableId>Q3B1UG0AAAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+            <dict Enabled="false" Comment="Delete Cpu0Ist">
+                <All>false</All>
+                <OemTableId>Q3B1MElzdAA=</OemTableId>
+                <TableLength>0</TableLength>
+                <TableSignature>U1NEVA==</TableSignature>
+            </dict>
+        </Delete>
         <Patch>
             <dict Enabled="false" Comment="_Q11 to XQ11">
                 <Count>1</Count>
@@ -29,24 +58,6 @@
                 <TableSignature/>
             </dict>
         </Patch>
-        <Delete>
-            <dict Enabled="false" Comment="Delete CpuPm">
-                <All>false</All>
-                <OemTableId>Q3B1UG0AAAA=</OemTableId>
-                <TableLength>0</TableLength>
-                <TableSignature>U1NEVA==</TableSignature>
-            </dict>
-            <dict Enabled="false" Comment="Delete Cpu0Ist">
-                <All>false</All>
-                <OemTableId>Q3B1MElzdAA=</OemTableId>
-                <TableLength>0</TableLength>
-                <TableSignature>U1NEVA==</TableSignature>
-            </dict>
-        </Delete>
-        <Add>
-            <dict Enabled="false" Comment="Custom DSDT" Path="DSDT.aml"/>
-            <dict Enabled="false" Comment="Custom SSDT" Path="SSDT.aml"/>
-        </Add>
         <Quirks>
             <FadtEnableReset>false</FadtEnableReset>
             <NormalizeHeaders>false</NormalizeHeaders>
@@ -65,21 +76,21 @@
                   Address="4278190080"/>
         </MmioWhitelist>
         <Quirks>
-            <AvoidRuntimeDefrag>false</AvoidRuntimeDefrag>
+            <AvoidRuntimeDefrag>true</AvoidRuntimeDefrag>
             <DevirtualiseMmio>false</DevirtualiseMmio>
             <DisableSingleUser>false</DisableSingleUser>
             <DisableVariableWrite>false</DisableVariableWrite>
             <DiscardHibernateMap>false</DiscardHibernateMap>
-            <EnableSafeModeSlide>false</EnableSafeModeSlide>
-            <EnableWriteUnprotector>false</EnableWriteUnprotector>
+            <EnableSafeModeSlide>true</EnableSafeModeSlide>
+            <EnableWriteUnprotector>true</EnableWriteUnprotector>
             <ForceExitBootServices>false</ForceExitBootServices>
             <ProtectMemoryRegions>false</ProtectMemoryRegions>
             <ProtectSecureBoot>false</ProtectSecureBoot>
             <ProtectUefiServices>false</ProtectUefiServices>
-            <ProvideCustomSlide>false</ProvideCustomSlide>
+            <ProvideCustomSlide>true</ProvideCustomSlide>
             <ProvideMaxSlide>0</ProvideMaxSlide>
             <RebuildAppleMemoryMap>false</RebuildAppleMemoryMap>
-            <SetupVirtualMap>false</SetupVirtualMap>
+            <SetupVirtualMap>true</SetupVirtualMap>
             <SignalAppleOS>false</SignalAppleOS>
             <SyncRuntimePermissions>false</SyncRuntimePermissions>
         </Quirks>
