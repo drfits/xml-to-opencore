@@ -613,10 +613,6 @@
                             <data>
                                 <xsl:value-of select="oc:PasswordSalt"/>
                             </data>
-                            <key>Vault</key>
-                            <string>
-                                <xsl:value-of select="oc:Vault"/>
-                            </string>
                             <key>ScanPolicy</key>
                             <integer>
                                 <xsl:value-of select="oc:ScanPolicy"/>
@@ -624,6 +620,10 @@
                             <key>SecureBootModel</key>
                             <string>
                                 <xsl:value-of select="oc:SecureBootModel"/>
+                            </string>
+                            <key>Vault</key>
+                            <string>
+                                <xsl:value-of select="oc:Vault"/>
                             </string>
                         </xsl:for-each>
                     </dict>

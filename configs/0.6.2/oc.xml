@@ -343,9 +343,9 @@
             <HaltLevel>2147483648</HaltLevel>
             <PasswordHash/>
             <PasswordSalt/>
-            <Vault>Secure</Vault>
             <ScanPolicy>17760515</ScanPolicy>
             <SecureBootModel>Default</SecureBootModel>
+            <Vault>Secure</Vault>
         </Security>
         <Tools>
             <entry Enabled="false" Name="UEFI Shell">

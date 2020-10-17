@@ -631,15 +631,6 @@
                                         <xs:element name="HaltLevel" type="xs:nonNegativeInteger"/>
                                         <xs:element name="PasswordHash" type="xs:base64Binary"/>
                                         <xs:element name="PasswordSalt" type="xs:base64Binary"/>
-                                        <xs:element name="Vault">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:enumeration value="Optional"/>
-                                                    <xs:enumeration value="Basic"/>
-                                                    <xs:enumeration value="Secure"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
                                         <xs:element name="ScanPolicy" type="xs:nonNegativeInteger"/>
                                         <xs:element name="SecureBootModel">
                                             <xs:simpleType>
@@ -662,6 +653,15 @@
                                                     <xs:enumeration value="j215"/>
                                                     <xs:enumeration value="j185"/>
                                                     <xs:enumeration value="j185f"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Vault">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Optional"/>
+                                                    <xs:enumeration value="Basic"/>
+                                                    <xs:enumeration value="Secure"/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
