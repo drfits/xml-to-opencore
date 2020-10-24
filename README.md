@@ -16,6 +16,15 @@ configuration structure and types
 
 :airplane: How to use:
 
+#### Without extra dependencies
+
+1. download the repo and navigate to config folder in terminal. Folder structure contains OpenCore version ("/configs/{opencore version}") therefore use your build.
+1. open index.html from config folder, specify "oc.xslt" and enter XML configuration content as on screen below:
+![how to use](assets/html-help.png)
+1. Copy content from "OpenCore config" section and put it within yours config.plist. 
+
+#### With Java installation
+
 1. install [JRE](https://www.java.com/download/) 
 1. download the repo and open config folder in terminal. Folder structure contains OpenCore version ("/configs/{opencore version}") therefore use your build.
 1. change oc.xml with require properties
